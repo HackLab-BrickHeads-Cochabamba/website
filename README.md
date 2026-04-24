@@ -1,11 +1,35 @@
+# HackLab BrickHeads Website
 
-  # Futuristic Tech Community Design
+Sitio web oficial del HackLab BrickHeads - espacio hacker de conocimiento abierto en Cochabamba, Bolivia.
 
-  This is a code bundle for Futuristic Tech Community Design. The original project is available at https://www.figma.com/design/jN0owKRSSzRXzPcbI5rrlA/Futuristic-Tech-Community-Design.
+## Tech Stack
 
-  ## Running the code
+- **Framework:** Nuxt 3
+- **UI:** Vue 3 + Tailwind CSS
+- **Icons:** Lucide Vue
+- **Deployment:** Node.js / Static
 
-  Run `npm i` to install the dependencies.
+## Setup
 
-  Run `npm run dev` to start the development server.
-  
+```bash
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```bash
+pnpm build
+```
+
+## Preview
+
+```bash
+pnpm preview
+```
+
+## Contacto
+
+- Email: hacklab.brickheads@gmail.com
+- Ubicación: Proyecto mARTadero, Cochabamba
+- Horarios: Sábados 15:00 - 18:00 | Miércoles (virtual) 21:00 - 22:00
