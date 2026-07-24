@@ -7,6 +7,7 @@ const socials = [
   { name: "@hacklab.brickheads", link: "https://www.instagram.com/hacklabbrickheads/", icon: Instagram },
   { name: "LinkedIn", link: "https://www.linkedin.com/company/hacklab-brickheads-cochabamba/", icon: Linkedin },
   { name: "YouTube", link: "https://www.youtube.com/@HackLabBrickHeads", icon: Youtube },
+  { name: "Whatsapp", link: "https://chat.whatsapp.com/GVc1h8iHryGCeIaf8Ee8ke", icon: Whatsapp },
 ];
 </script>
 
