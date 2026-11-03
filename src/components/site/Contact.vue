@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Send,
   Terminal,
-  Youtube,
 } from "lucide-vue-next";
 import { reactive } from "vue";
 
@@ -91,7 +87,7 @@ const handleSendEmail = () => {
                 rel="noopener noreferrer"
                 class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
               >
-                <Facebook class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
+                <SiteSocialIcon name="facebook" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
                 <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">Facebook</span>
               </a>
               <a
@@ -100,7 +96,7 @@ const handleSendEmail = () => {
                 rel="noopener noreferrer"
                 class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
               >
-                <Instagram class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
+                <SiteSocialIcon name="instagram" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
                 <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">Instagram</span>
               </a>
               <a
@@ -109,7 +105,7 @@ const handleSendEmail = () => {
                 rel="noopener noreferrer"
                 class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
               >
-                <Linkedin class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
+                <SiteSocialIcon name="linkedin" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
                 <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">LinkedIn</span>
               </a>
               <a
@@ -118,7 +114,7 @@ const handleSendEmail = () => {
                 rel="noopener noreferrer"
                 class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
               >
-                <Youtube class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
+                <SiteSocialIcon name="youtube" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
                 <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">YouTube</span>
               </a>
             </div>

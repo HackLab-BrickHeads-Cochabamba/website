@@ -36,7 +36,7 @@ const manifesto = [
           <div class="flex gap-4 items-start">
             <div class="flex-shrink-0 mt-1">
               <div class="w-6 h-6 border border-[#189C3B] flex items-center justify-center group-hover:bg-[#189C3B] transition-colors">
-                <span class="text-[#189C3B] group-hover:text-[#189C3B] font-mono text-xs">{{ String(index + 1).padStart(2, '0') }}</span>
+                <span class="text-[#189C3B] group-hover:text-black font-mono text-xs">{{ String(index + 1).padStart(2, '0') }}</span>
               </div>
             </div>
             <p class="text-gray-300 leading-relaxed flex-1">{{ principle }}</p>
