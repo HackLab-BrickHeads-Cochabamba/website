@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { BookOpen, Cpu, Lightbulb, Users } from "lucide-vue-next";
-import headsLogo from "~/assets/images/heads_white.png";
-import lettersLogo from "~/assets/images/letters_white.png";
 
 const pillars = [
   { icon: Cpu, label: "Tecnologia" },
@@ -18,8 +16,8 @@ const pillars = [
     </div>
 
     <div class="absolute inset-0">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#189C3B]/10 rounded-full blur-[120px] animate-pulse"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#189C3B]/5 rounded-full blur-[120px] animate-pulse [animation-delay:1s]"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#189C3B]/10 rounded-full blur-[60px] md:blur-[120px] motion-safe:animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#189C3B]/5 rounded-full blur-[60px] md:blur-[120px] motion-safe:animate-pulse [animation-delay:1s]"></div>
     </div>
 
     <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(24,156,59,0.02)_50%)] bg-[length:100%_4px] pointer-events-none"></div>
@@ -28,14 +26,26 @@ const pillars = [
       <div class="text-center mt-8 md:mt-10">
         <div class="mb-10">
           <div class="flex flex-col items-center gap-4">
-            <img
-              :src="headsLogo"
+            <NuxtImg
+              src="/images/heads_white.png"
               alt="HackLab Logo"
+              width="448"
+              height="448"
+              format="webp"
+              sizes="(min-width: 768px) 224px, 176px"
+              preload
+              loading="eager"
               class="w-44 h-44 md:w-56 md:h-56 object-contain drop-shadow-[0_0_35px_rgba(24,156,59,0.35)]"
             />
-            <img
-              :src="lettersLogo"
+            <NuxtImg
+              src="/images/letters_white.png"
               alt="HackLab BrickHeads"
+              width="896"
+              height="224"
+              format="webp"
+              sizes="(min-width: 768px) 448px, 288px"
+              preload
+              loading="eager"
               class="w-72 md:w-[28rem] object-contain drop-shadow-[0_0_30px_rgba(24,156,59,0.3)]"
             />
           </div>
@@ -72,7 +82,7 @@ const pillars = [
           ÚNETE
         </a>
 
-        <div class="mt-12 text-[#189C3B] text-2xl font-mono animate-pulse">▂</div>
+        <div class="mt-12 text-[#189C3B] text-2xl font-mono motion-safe:animate-pulse">▂</div>
       </div>
     </div>
   </section>

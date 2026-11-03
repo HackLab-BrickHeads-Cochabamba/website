@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Menu, X } from "lucide-vue-next";
-import lettersLogo from "~/assets/images/letters_white.png";
 
 const isOpen = ref(false);
 
@@ -20,7 +19,15 @@ const navItems = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <NuxtLink to="/" class="flex items-center gap-3">
-          <img :src="lettersLogo" alt="HackLab BrickHeads" class="h-8 w-auto object-contain" />
+          <NuxtImg
+            src="/images/letters_white.png"
+            alt="HackLab BrickHeads"
+            width="256"
+            height="64"
+            format="webp"
+            sizes="128px"
+            class="h-8 w-auto object-contain"
+          />
         </NuxtLink>
 
         <div class="hidden md:block">

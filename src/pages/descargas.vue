@@ -1,28 +1,42 @@
 <script setup lang="ts">
 import { Download, FileImage, Package } from "lucide-vue-next";
-import headsLogo from "~/assets/images/heads_white.png";
-import lettersLogo from "~/assets/images/letters_white.png";
-import squareLogo from "~/assets/images/square_white.png";
+
+useSeoMeta({
+  title: "Centro de descargas — HackLab BrickHeads",
+  description:
+    "Descargá los logos y recursos de HackLab BrickHeads. Materiales libres para la comunidad.",
+  ogTitle: "Centro de descargas — HackLab BrickHeads",
+  ogDescription:
+    "Descargá los logos y recursos de HackLab BrickHeads. Materiales libres para la comunidad.",
+  ogType: "website",
+  twitterCard: "summary",
+});
 
 const downloads = [
   {
     title: "Logo Completo (Cuadrado)",
     description: "Logo con heads de LEGO en formato cuadrado",
-    image: squareLogo,
+    image: "/images/square_white.png",
+    width: 256,
+    height: 256,
     filename: "hacklab_logo_square.png",
     category: "Logos",
   },
   {
     title: "Logo Letras",
     description: 'Texto "BRICK-HEADS" en verde',
-    image: lettersLogo,
+    image: "/images/letters_white.png",
+    width: 512,
+    height: 128,
     filename: "hacklab_letters.png",
     category: "Logos",
   },
   {
     title: "Heads Iconos",
     description: "Iconos de heads de LEGO",
-    image: headsLogo,
+    image: "/images/heads_white.png",
+    width: 256,
+    height: 256,
     filename: "hacklab_heads.png",
     category: "Logos",
   },
@@ -66,7 +80,14 @@ const handleDownload = (imageSrc: string, filename: string) => {
           class="border border-[#189C3B]/30 bg-black/80 overflow-hidden hover:border-[#189C3B]/60 transition-all duration-300 group"
         >
           <div class="relative h-64 bg-white/5 border-b border-[#189C3B]/30 flex items-center justify-center p-8">
-            <img :src="item.image" :alt="item.title" class="max-w-full max-h-full object-contain" />
+            <NuxtImg
+              :src="item.image"
+              :alt="item.title"
+              :width="item.width"
+              :height="item.height"
+              format="webp"
+              class="max-w-full max-h-full object-contain"
+            />
             <div class="absolute top-4 left-4">
               <span class="border border-[#189C3B] bg-black/80 px-3 py-1 text-[#189C3B] font-mono text-xs uppercase tracking-wider">{{ item.category }}</span>
             </div>
