@@ -36,59 +36,44 @@ const services = [
 </script>
 
 <template>
-  <section id="services" class="py-20 bg-black relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#189C3B_1px,transparent_1px),linear-gradient(to_bottom,#189C3B_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-    </div>
-
-    <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#189C3B]/40"></div>
-    <div class="absolute top-0 right-0 w-32 h-32 border-t-2 border-r-2 border-[#189C3B]/40"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 border-b-2 border-l-2 border-[#189C3B]/40"></div>
-    <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#189C3B]/40"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16">
-        <div class="inline-block mb-4">
-          <span class="text-[#189C3B] font-mono text-sm border border-[#189C3B]/30 px-4 py-2 bg-[#189C3B]/5">{{ '// ACTIVIDADES' }}</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl mb-4 font-bold">
-          <span class="text-white">Que <span class="text-[#189C3B] drop-shadow-[0_0_15px_rgba(24,156,59,0.5)]">Hacemos</span></span>
-        </h2>
-        <p class="text-gray-400 text-lg font-mono max-w-3xl mx-auto">> Iniciativas para democratizar la tecnologia</p>
+  <section id="services" class="relative border-y border-white/5 bg-white/[0.015] py-24 sm:py-32">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <SiteSectionHeader label="// Actividades" title="Que" highlight="Hacemos" />
+        <p class="max-w-sm font-mono text-sm text-white/60">
+          <span class="text-[#189C3B]">></span> Iniciativas para democratizar la
+          tecnologia
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
+      <div
+        class="mt-16 grid grid-cols-1 gap-x-10 border-b border-white/10 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <article
           v-for="(service, index) in services"
           :key="service.title"
-          class="border border-[#189C3B]/30 bg-black/80 p-6 hover:border-[#189C3B]/60 hover:bg-[#189C3B]/5 transition-all duration-300 group relative overflow-hidden"
+          class="group border-t border-white/10 py-8 transition-colors hover:border-[#189C3B]/60"
         >
-          <div class="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#189C3B]/20 group-hover:border-[#189C3B]/60 transition-colors"></div>
-
-          <div class="border border-[#189C3B]/40 w-16 h-16 flex items-center justify-center mb-4 bg-black group-hover:bg-[#189C3B] group-hover:shadow-[0_0_20px_rgba(24,156,59,0.5)] transition-all duration-300">
-            <component :is="service.icon" class="w-8 h-8 text-[#189C3B] group-hover:text-black transition-colors" />
+          <div class="flex items-center gap-4">
+            <span class="font-mono text-xs text-[#189C3B]">
+              {{ String(index + 1).padStart(2, "0") }}
+            </span>
+            <component
+              :is="service.icon"
+              class="h-5 w-5 text-[#189C3B] transition-transform duration-300 group-hover:-translate-y-0.5"
+            />
           </div>
 
-          <h3 class="text-white font-bold mb-2 uppercase tracking-wide">{{ service.title }}</h3>
-          <p class="text-gray-400">{{ service.description }}</p>
-
-          <div
-            aria-hidden="true"
-            :data-num="String(index + 1).padStart(2, '0')"
-            class="service-num absolute bottom-4 right-4 text-[#189C3B]/20 group-hover:text-[#189C3B]/40 font-mono text-4xl font-bold transition-colors"
-          ></div>
-        </div>
+          <h3
+            class="mt-5 text-lg font-bold uppercase tracking-wide text-white transition-colors group-hover:text-[#189C3B]"
+          >
+            {{ service.title }}
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-white/60">
+            {{ service.description }}
+          </p>
+        </article>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-/*
- * Los números son decorativos. Se pintan con ::before para que no cuenten
- * como texto real (WCAG exime la decoración pura y axe no evalúa pseudo-elementos).
- */
-.service-num::before {
-  content: attr(data-num);
-}
-</style>

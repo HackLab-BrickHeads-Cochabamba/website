@@ -53,88 +53,112 @@ const handleDownload = (imageSrc: string, filename: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-black pt-16">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(24,156,59,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,156,59,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-    <div class="absolute top-16 left-0 w-32 h-32 border-t-2 border-l-2 border-[#189C3B]/40"></div>
-    <div class="absolute top-16 right-0 w-32 h-32 border-t-2 border-r-2 border-[#189C3B]/40"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-      <div class="text-center mb-16">
-        <div class="inline-block mb-4">
-          <span class="text-[#189C3B] font-mono text-sm border border-[#189C3B]/30 px-4 py-2 bg-[#189C3B]/5">{{ '// RECURSOS' }}</span>
+  <div class="min-h-screen bg-black pt-20">
+    <div class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#189C3B]">
+            // Recursos
+          </p>
+          <h1 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Centro de <span class="text-[#189C3B]">Descargas</span>
+          </h1>
+          <p class="mt-4 max-w-xl font-mono text-sm text-white/60">
+            <span class="text-[#189C3B]">></span> Logos, materiales y recursos del
+            HackLab BrickHeads
+          </p>
         </div>
-        <h1 class="text-4xl md:text-6xl mb-6 font-bold">
-          <span class="text-white">Centro de <span class="text-[#189C3B] drop-shadow-[0_0_15px_rgba(24,156,59,0.5)]">Descargas</span></span>
-        </h1>
-        <p class="text-gray-400 text-lg font-mono max-w-3xl mx-auto">> Logos, materiales y recursos del HackLab BrickHeads</p>
-        <p class="text-gray-500 text-sm font-mono mt-4 border border-[#189C3B]/20 inline-block px-6 py-3 bg-[#189C3B]/5">
+        <p class="max-w-xs font-mono text-xs leading-relaxed text-white/60">
           Todos los recursos son de uso libre para la comunidad
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <div
-          v-for="(item, index) in downloads"
-          :key="item.filename"
-          class="border border-[#189C3B]/30 bg-black/80 overflow-hidden hover:border-[#189C3B]/60 transition-all duration-300 group"
-        >
-          <div class="relative h-64 bg-white/5 border-b border-[#189C3B]/30 flex items-center justify-center p-8">
+      <div class="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <article v-for="item in downloads" :key="item.filename" class="group">
+          <div
+            class="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-white/[0.03] p-10"
+          >
             <NuxtImg
               :src="item.image"
               :alt="item.title"
               :width="item.width"
               :height="item.height"
               format="webp"
-              class="max-w-full max-h-full object-contain"
+              class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="absolute top-4 left-4">
-              <span class="border border-[#189C3B] bg-black/80 px-3 py-1 text-[#189C3B] font-mono text-xs uppercase tracking-wider">{{ item.category }}</span>
-            </div>
-            <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#189C3B]/20 group-hover:border-[#189C3B]/60 transition-colors"></div>
+            <span
+              class="absolute left-4 top-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/60"
+            >
+              <FileImage class="h-3.5 w-3.5" />
+              {{ item.category }}
+            </span>
           </div>
 
-          <div class="p-6">
-            <div class="flex items-start gap-3 mb-3">
-              <FileImage class="w-5 h-5 text-[#189C3B] flex-shrink-0 mt-1" />
-              <div>
-                <h3 class="text-white font-bold uppercase tracking-wide mb-1">{{ item.title }}</h3>
-                <p class="text-gray-400 text-sm">{{ item.description }}</p>
-              </div>
-            </div>
-
+          <div class="mt-4">
+            <h2 class="text-base font-bold uppercase tracking-wide text-white">
+              {{ item.title }}
+            </h2>
+            <p class="mt-1 text-sm text-white/60">{{ item.description }}</p>
+            <p class="mt-2 font-mono text-[11px] text-white/60">
+              {{ item.filename }}
+            </p>
             <button
-              class="w-full mt-4 px-6 py-3 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
+              type="button"
+              class="mt-4 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#189C3B] transition-colors hover:text-white"
               @click="handleDownload(item.image, item.filename)"
             >
-              <Download class="w-5 h-5" />
-              {{ '[DESCARGAR]' }}
+              <Download class="h-4 w-4" />
+              {{ "[DESCARGAR]" }}
             </button>
-
-            <p class="text-gray-600 font-mono text-xs mt-3 text-center">{{ item.filename }}</p>
           </div>
-        </div>
+        </article>
       </div>
 
-      <div class="border border-[#189C3B]/40 bg-[#189C3B]/10 p-8 text-center">
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <Package class="w-8 h-8 text-[#189C3B]" />
-          <h2 class="text-2xl font-bold text-white uppercase tracking-wider">Pack Completo</h2>
+      <div
+        class="mt-20 flex flex-col gap-6 border-y border-white/10 py-10 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="flex items-center gap-4">
+          <Package class="h-8 w-8 shrink-0 text-[#189C3B]" />
+          <div>
+            <h2 class="text-xl font-bold uppercase tracking-wide text-white">
+              Pack Completo
+            </h2>
+            <p class="mt-1 font-mono text-sm text-white/60">
+              Descarga todos los recursos en un solo archivo comprimido
+            </p>
+          </div>
         </div>
-        <p class="text-gray-300 mb-6 font-mono">Descarga todos los recursos en un solo archivo comprimido</p>
-        <button class="px-8 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.4)] hover:shadow-[0_0_40px_rgba(24,156,59,0.7)] inline-flex items-center gap-3">
-          <Download class="w-6 h-6" />
-          {{ '[DESCARGAR_TODO]' }}
+
+        <button
+          type="button"
+          class="inline-flex items-center justify-center gap-3 bg-[#189C3B] px-7 py-3.5 font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#000] transition-colors hover:bg-[#20BC4A]"
+        >
+          <Download class="h-5 w-5" />
+          {{ "[DESCARGAR_TODO]" }}
         </button>
       </div>
 
-      <div class="mt-12 border border-[#189C3B]/30 bg-black/80 p-8">
-        <h3 class="text-white font-bold mb-4 uppercase tracking-wide text-xl">> Guia de Uso</h3>
-        <ul class="text-gray-400 space-y-2 font-mono text-sm">
-          <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Los logos pueden ser usados libremente para promocionar el HackLab</li>
-          <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Manten los colores oficiales: verde (#189C3B), negro y blanco</li>
-          <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>No modifiques las proporciones de los logos</li>
-          <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Para usos comerciales, contacta a hacklab.brickheads@gmail.com</li>
+      <div class="mt-16 grid gap-8 lg:grid-cols-[0.35fr_0.65fr]">
+        <h3 class="text-xl font-bold uppercase tracking-wide text-white">
+          > Guia de Uso
+        </h3>
+        <ul class="divide-y divide-white/10 border-t border-white/10">
+          <li class="flex items-start gap-3 py-4 text-sm text-white/60">
+            <span class="text-[#189C3B]">▸</span>
+            Los logos pueden ser usados libremente para promocionar el HackLab
+          </li>
+          <li class="flex items-start gap-3 py-4 text-sm text-white/60">
+            <span class="text-[#189C3B]">▸</span>
+            Manten los colores oficiales: verde (#189C3B), negro y blanco
+          </li>
+          <li class="flex items-start gap-3 py-4 text-sm text-white/60">
+            <span class="text-[#189C3B]">▸</span>
+            No modifiques las proporciones de los logos
+          </li>
+          <li class="flex items-start gap-3 py-4 text-sm text-white/60">
+            <span class="text-[#189C3B]">▸</span>
+            Para usos comerciales, contacta a hacklab.brickheads@gmail.com
+          </li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  ArrowUpRight,
   Mail,
   MapPin,
   Send,
@@ -18,58 +19,95 @@ const handleSendEmail = () => {
   const recipient = "hacklab.brickheads@gmail.com";
   const subject = encodeURIComponent(formData.subject || "Contacto desde HackLab");
   const body = encodeURIComponent(
-    `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+    `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`,
   );
   window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 };
+
+const socials = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/HackLabBrickHeads",
+    icon: "facebook",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/hacklabbrickheads/",
+    icon: "instagram",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/hacklab-brickheads-cochabamba/",
+    icon: "linkedin",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@HackLabBrickHeads",
+    icon: "youtube",
+  },
+] as const;
+
+const opportunities = [
+  "Patrocinio de eventos y actividades",
+  "Proyectos colaborativos open source",
+  "Charlas tecnicas y workshops",
+  "Donacion de equipos y recursos",
+];
 </script>
 
 <template>
-  <section id="contact" class="py-20 bg-black relative overflow-hidden">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(24,156,59,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,156,59,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#189C3B]/50 to-transparent"></div>
+  <section
+    id="contact"
+    class="relative border-t border-white/5 bg-white/[0.015] py-24 sm:py-32"
+  >
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <div class="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div>
+          <SiteSectionHeader
+            label="// Contacto"
+            title="Unete al"
+            highlight="HackLab"
+            description="> Colabora, aprende y construye con nosotros"
+          />
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16">
-        <div class="inline-block mb-4">
-          <span class="text-[#189C3B] font-mono text-sm border border-[#189C3B]/30 px-4 py-2 bg-[#189C3B]/5">{{ '// CONTACTO' }}</span>
-        </div>
-        <h2 class="text-4xl md:text-5xl mb-4 font-bold">
-          <span class="text-white">Unete al <span class="text-[#189C3B] drop-shadow-[0_0_15px_rgba(24,156,59,0.5)]">HackLab</span></span>
-        </h2>
-        <p class="text-gray-400 text-lg font-mono">> Colabora, aprende y construye con nosotros</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="space-y-6">
-          <div class="border border-[#189C3B]/30 bg-black/80 p-6">
-            <div class="flex items-start gap-4 mb-6">
-              <div class="border border-[#189C3B] w-12 h-12 flex items-center justify-center bg-black">
-                <Mail class="w-6 h-6 text-[#189C3B]" />
-              </div>
+          <div class="mt-12 divide-y divide-white/10 border-t border-white/10">
+            <div class="flex gap-4 py-5">
+              <Mail class="mt-0.5 h-5 w-5 shrink-0 text-[#189C3B]" />
               <div>
-                <h3 class="text-white font-bold mb-1 uppercase tracking-wide">Email</h3>
-                <p class="text-gray-400 font-mono text-sm">hacklab.brickheads@gmail.com</p>
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+                >
+                  Email
+                </p>
+                <p class="mt-1 text-sm text-white/80">
+                  hacklab.brickheads@gmail.com
+                </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4 mb-6">
-              <div class="border border-[#189C3B] w-12 h-12 flex items-center justify-center bg-black">
-                <MapPin class="w-6 h-6 text-[#189C3B]" />
-              </div>
+            <div class="flex gap-4 py-5">
+              <MapPin class="mt-0.5 h-5 w-5 shrink-0 text-[#189C3B]" />
               <div>
-                <h3 class="text-white font-bold mb-1 uppercase tracking-wide">Ubicacion</h3>
-                <p class="text-gray-400 font-mono text-sm">Proyecto mARTadero, Cochabamba</p>
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+                >
+                  Ubicacion
+                </p>
+                <p class="mt-1 text-sm text-white/80">
+                  Proyecto mARTadero, Cochabamba
+                </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4">
-              <div class="border border-[#189C3B] w-12 h-12 flex items-center justify-center bg-black">
-                <Terminal class="w-6 h-6 text-[#189C3B]" />
-              </div>
+            <div class="flex gap-4 py-5">
+              <Terminal class="mt-0.5 h-5 w-5 shrink-0 text-[#189C3B]" />
               <div>
-                <h3 class="text-white font-bold mb-1 uppercase tracking-wide">Horarios</h3>
-                <p class="text-gray-400 font-mono text-sm">
+                <p
+                  class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+                >
+                  Horarios
+                </p>
+                <p class="mt-1 text-sm leading-relaxed text-white/80">
                   Sabados 15:00 - 18:00
                   <br />
                   Miercoles (virtual) 21:00 - 22:00
@@ -78,122 +116,140 @@ const handleSendEmail = () => {
             </div>
           </div>
 
-          <div class="border border-[#189C3B]/30 bg-black/80 p-6">
-            <h3 class="text-white font-bold mb-4 uppercase tracking-wide">{{ '<SOCIAL_LINKS />' }}</h3>
-            <div class="grid grid-cols-2 gap-4">
+          <div class="mt-10">
+            <p
+              class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+            >
+              {{ "<SOCIAL_LINKS />" }}
+            </p>
+            <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
               <a
-                href="https://www.facebook.com/HackLabBrickHeads"
+                v-for="social in socials"
+                :key="social.name"
+                :href="social.href"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
+                class="group inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
               >
-                <SiteSocialIcon name="facebook" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
-                <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">Facebook</span>
-              </a>
-              <a
-                href="https://www.instagram.com/hacklabbrickheads/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
-              >
-                <SiteSocialIcon name="instagram" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
-                <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">Instagram</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/hacklab-brickheads-cochabamba/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
-              >
-                <SiteSocialIcon name="linkedin" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
-                <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">LinkedIn</span>
-              </a>
-              <a
-                href="https://www.youtube.com/@HackLabBrickHeads"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center gap-3 border border-[#189C3B]/40 p-3 hover:bg-[#189C3B]/10 hover:border-[#189C3B] transition-all duration-300 group"
-              >
-                <SiteSocialIcon name="youtube" aria-hidden="true" class="w-5 h-5 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
-                <span class="text-gray-300 text-sm font-medium group-hover:text-[#189C3B] transition-colors">YouTube</span>
+                <SiteSocialIcon
+                  :name="social.icon"
+                  aria-hidden="true"
+                  class="h-4 w-4 text-[#189C3B]"
+                />
+                {{ social.name }}
+                <ArrowUpRight
+                  class="h-3.5 w-3.5 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#189C3B]"
+                />
               </a>
             </div>
           </div>
 
-          <div class="border border-[#189C3B]/30 bg-[#189C3B]/5 p-6">
-            <h3 class="text-white font-bold mb-3 uppercase tracking-wide">> Oportunidades de Colaboracion</h3>
-            <ul class="text-gray-400 space-y-2 font-mono text-sm">
-              <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Patrocinio de eventos y actividades</li>
-              <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Proyectos colaborativos open source</li>
-              <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Charlas tecnicas y workshops</li>
-              <li class="flex items-start"><span class="text-[#189C3B] mr-2">▸</span>Donacion de equipos y recursos</li>
+          <div class="mt-10 border-t border-white/10 pt-6">
+            <p
+              class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+            >
+              > Oportunidades de Colaboracion
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-white/60">
+              <li
+                v-for="item in opportunities"
+                :key="item"
+                class="flex items-start gap-2"
+              >
+                <span class="text-[#189C3B]">▸</span>
+                {{ item }}
+              </li>
             </ul>
           </div>
         </div>
 
-        <div>
-          <div class="border border-[#189C3B]/30 bg-black/80 p-8">
-            <div class="mb-6">
-              <p class="text-[#189C3B] font-mono text-sm mb-4">> root@hacklab:~$ send_message --to=admin</p>
-            </div>
+        <div
+          class="border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:mt-16"
+        >
+          <p class="font-mono text-xs text-[#189C3B]">
+            > root@hacklab:~$ send_message --to=admin
+          </p>
 
-            <div class="space-y-6">
-              <div>
-                <label for="name" class="block text-white mb-2 font-mono uppercase text-sm tracking-wider">Nombre</label>
-                <input
-                  id="name"
-                  v-model="formData.name"
-                  type="text"
-                  class="w-full px-4 py-3 bg-black border border-[#189C3B]/40 text-white focus:border-[#189C3B] focus:outline-none focus:shadow-[0_0_10px_rgba(24,156,59,0.3)] transition-all font-mono"
-                  placeholder="Tu nombre"
-                />
-              </div>
-
-              <div>
-                <label for="email" class="block text-white mb-2 font-mono uppercase text-sm tracking-wider">Email</label>
-                <input
-                  id="email"
-                  v-model="formData.email"
-                  type="email"
-                  class="w-full px-4 py-3 bg-black border border-[#189C3B]/40 text-white focus:border-[#189C3B] focus:outline-none focus:shadow-[0_0_10px_rgba(24,156,59,0.3)] transition-all font-mono"
-                  placeholder="tu@email.com"
-                />
-              </div>
-
-              <div>
-                <label for="subject" class="block text-white mb-2 font-mono uppercase text-sm tracking-wider">Asunto</label>
-                <input
-                  id="subject"
-                  v-model="formData.subject"
-                  type="text"
-                  class="w-full px-4 py-3 bg-black border border-[#189C3B]/40 text-white focus:border-[#189C3B] focus:outline-none focus:shadow-[0_0_10px_rgba(24,156,59,0.3)] transition-all font-mono"
-                  placeholder="En que estas interesado?"
-                />
-              </div>
-
-              <div>
-                <label for="message" class="block text-white mb-2 font-mono uppercase text-sm tracking-wider">Mensaje</label>
-                <textarea
-                  id="message"
-                  v-model="formData.message"
-                  rows="5"
-                  class="w-full px-4 py-3 bg-black border border-[#189C3B]/40 text-white focus:border-[#189C3B] focus:outline-none focus:shadow-[0_0_10px_rgba(24,156,59,0.3)] transition-all resize-none font-mono"
-                  placeholder="Cuentanos sobre tu idea..."
-                ></textarea>
-              </div>
-
-              <button
-                type="button"
-                @click="handleSendEmail"
-                class="w-full px-6 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
+          <form class="mt-8 space-y-6" @submit.prevent="handleSendEmail">
+            <div>
+              <label
+                for="name"
+                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
               >
-                <Send class="w-5 h-5" />
-                {{ '[ENVIAR_MENSAJE]' }}
-              </button>
-
-              <p class="text-gray-500 text-sm font-mono text-center">> Responderemos en menos de 48 horas</p>
+                Nombre
+              </label>
+              <input
+                id="name"
+                v-model="formData.name"
+                type="text"
+                required
+                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
+                placeholder="Tu nombre"
+              />
             </div>
-          </div>
+
+            <div>
+              <label
+                for="email"
+                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                v-model="formData.email"
+                type="email"
+                required
+                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
+                placeholder="tu@email.com"
+              />
+            </div>
+
+            <div>
+              <label
+                for="subject"
+                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+              >
+                Asunto
+              </label>
+              <input
+                id="subject"
+                v-model="formData.subject"
+                type="text"
+                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
+                placeholder="En que estas interesado?"
+              />
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
+              >
+                Mensaje
+              </label>
+              <textarea
+                id="message"
+                v-model="formData.message"
+                rows="5"
+                required
+                class="mt-2 w-full resize-none border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
+                placeholder="Cuentanos sobre tu idea..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex w-full items-center justify-center gap-2 bg-[#189C3B] px-6 py-4 font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#000] transition-colors hover:bg-[#20BC4A]"
+            >
+              <Send class="h-5 w-5" />
+              {{ "[ENVIAR_MENSAJE]" }}
+            </button>
+
+            <p class="text-center font-mono text-xs text-white/60">
+              > Responderemos en menos de 48 horas
+            </p>
+          </form>
         </div>
       </div>
     </div>
