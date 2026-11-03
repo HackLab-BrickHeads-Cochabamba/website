@@ -77,7 +77,7 @@ const pillars = [
           href="https://forms.gle/VfR5R73zFp84ua5L8"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex px-8 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] font-bold uppercase tracking-wider hover:bg-[#189C3B] hover:text-[#189C3B] transition-all duration-300 shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
+          class="inline-flex px-8 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] font-bold uppercase tracking-wider hover:bg-[#189C3B] hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
         >
           ÚNETE
         </a>

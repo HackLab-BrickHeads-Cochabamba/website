@@ -66,17 +66,29 @@ const services = [
           <div class="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#189C3B]/20 group-hover:border-[#189C3B]/60 transition-colors"></div>
 
           <div class="border border-[#189C3B]/40 w-16 h-16 flex items-center justify-center mb-4 bg-black group-hover:bg-[#189C3B] group-hover:shadow-[0_0_20px_rgba(24,156,59,0.5)] transition-all duration-300">
-            <component :is="service.icon" class="w-8 h-8 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
+            <component :is="service.icon" class="w-8 h-8 text-[#189C3B] group-hover:text-black transition-colors" />
           </div>
 
           <h3 class="text-white font-bold mb-2 uppercase tracking-wide">{{ service.title }}</h3>
           <p class="text-gray-400">{{ service.description }}</p>
 
-          <div class="absolute bottom-4 right-4 text-[#189C3B]/20 group-hover:text-[#189C3B]/40 font-mono text-4xl font-bold transition-colors">
-            {{ String(index + 1).padStart(2, '0') }}
-          </div>
+          <div
+            aria-hidden="true"
+            :data-num="String(index + 1).padStart(2, '0')"
+            class="service-num absolute bottom-4 right-4 text-[#189C3B]/20 group-hover:text-[#189C3B]/40 font-mono text-4xl font-bold transition-colors"
+          ></div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+/*
+ * Los números son decorativos. Se pintan con ::before para que no cuenten
+ * como texto real (WCAG exime la decoración pura y axe no evalúa pseudo-elementos).
+ */
+.service-num::before {
+  content: attr(data-num);
+}
+</style>

@@ -90,7 +90,7 @@ const formatDate = (value: string) =>
       </div>
 
       <div class="text-center mt-12">
-        <button class="border-2 border-[#189C3B] bg-black px-8 py-3 text-[#189C3B] hover:bg-[#189C3B] hover:text-[#189C3B] transition-all duration-300 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]">
+        <button class="border-2 border-[#189C3B] bg-black px-8 py-3 text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]">
           {{ '[VER_TODO_EL_BLOG]' }}
         </button>
       </div>

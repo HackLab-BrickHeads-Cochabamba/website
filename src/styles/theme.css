@@ -4,6 +4,7 @@
   --font-size: 16px;
   --font-family: 'Oxanium', system-ui, sans-serif;
   --hack-green: #189C3B;
+  --hack-green-text: #20BC4A;
   --hack-black: #2D2D2E;
   --hack-gray: #3A3938;
   --hack-white: #FFFFFF;
@@ -224,5 +225,17 @@
 
   .bg-white\/5 {
     background-color: var(--hack-gray) !important;
+  }
+}
+
+/*
+ * Texto verde legible sobre las superficies oscuras del sitio.
+ * #189C3B sobre #2D2D2E da 3.83:1 y no alcanza WCAG AA para texto chico;
+ * esta variante da 4.70:1 manteniendo el mismo tono. El verde de marca se
+ * conserva para bordes, glows y fondos.
+ */
+@layer utilities {
+  .text-\[\#189C3B\] {
+    color: var(--hack-green-text);
   }
 }

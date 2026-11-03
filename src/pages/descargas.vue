@@ -104,7 +104,7 @@ const handleDownload = (imageSrc: string, filename: string) => {
             </div>
 
             <button
-              class="w-full mt-4 px-6 py-3 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-[#189C3B] transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
+              class="w-full mt-4 px-6 py-3 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
               @click="handleDownload(item.image, item.filename)"
             >
               <Download class="w-5 h-5" />
@@ -122,7 +122,7 @@ const handleDownload = (imageSrc: string, filename: string) => {
           <h2 class="text-2xl font-bold text-white uppercase tracking-wider">Pack Completo</h2>
         </div>
         <p class="text-gray-300 mb-6 font-mono">Descarga todos los recursos en un solo archivo comprimido</p>
-        <button class="px-8 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-[#189C3B] transition-all duration-300 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.4)] hover:shadow-[0_0_40px_rgba(24,156,59,0.7)] inline-flex items-center gap-3">
+        <button class="px-8 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.4)] hover:shadow-[0_0_40px_rgba(24,156,59,0.7)] inline-flex items-center gap-3">
           <Download class="w-6 h-6" />
           {{ '[DESCARGAR_TODO]' }}
         </button>

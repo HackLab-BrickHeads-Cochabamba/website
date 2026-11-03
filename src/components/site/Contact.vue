@@ -189,7 +189,7 @@ const handleSendEmail = () => {
               <button
                 type="button"
                 @click="handleSendEmail"
-                class="w-full px-6 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-[#189C3B] transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
+                class="w-full px-6 py-4 bg-black border-2 border-[#189C3B] text-[#189C3B] hover:bg-[#189C3B] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(24,156,59,0.3)] hover:shadow-[0_0_30px_rgba(24,156,59,0.6)]"
               >
                 <Send class="w-5 h-5" />
                 {{ '[ENVIAR_MENSAJE]' }}

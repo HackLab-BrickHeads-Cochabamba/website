@@ -45,7 +45,11 @@ const navItems = [
 
         <div class="md:hidden">
           <button
+            type="button"
             class="text-gray-300 hover:text-[#189C3B] border border-[#189C3B]/30 p-2"
+            :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"
+            :aria-expanded="isOpen"
+            aria-controls="mobile-menu"
             @click="isOpen = !isOpen"
           >
             <X v-if="isOpen" :size="24" />
@@ -55,7 +59,7 @@ const navItems = [
       </div>
     </div>
 
-    <div v-if="isOpen" class="md:hidden bg-black/95 backdrop-blur-lg border-t border-[#189C3B]/20">
+    <div v-if="isOpen" id="mobile-menu" class="md:hidden bg-black/95 backdrop-blur-lg border-t border-[#189C3B]/20">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a
           v-for="item in navItems"
