@@ -3,6 +3,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2026-04-24",
   srcDir: "src/",
+  routeRules: {
+    "/descargas": { redirect: { to: "/downloads", statusCode: 301 } },
+  },
   modules: ["@nuxt/fonts", "@nuxt/image"],
   css: ["~/styles/index.css"],
   devtools: { enabled: process.env.NODE_ENV === "development" },

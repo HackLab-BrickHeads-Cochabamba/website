@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ArrowUpRight } from "lucide-vue-next";
+import { socialLinks } from "~/data/social-links";
 
 useSeoMeta({
   title: "Redes y comunidad — HackLab BrickHeads",
@@ -12,33 +13,7 @@ useSeoMeta({
   twitterCard: "summary",
 });
 
-const socials = [
-  {
-    name: "Facebook",
-    link: "https://www.facebook.com/HackLabBrickHeads",
-    icon: "facebook",
-  },
-  {
-    name: "Instagram",
-    link: "https://www.instagram.com/hacklabbrickheads/",
-    icon: "instagram",
-  },
-  {
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/company/hacklab-brickheads-cochabamba/",
-    icon: "linkedin",
-  },
-  {
-    name: "YouTube",
-    link: "https://www.youtube.com/@HackLabBrickHeads",
-    icon: "youtube",
-  },
-  {
-    name: "Whatsapp",
-    link: "https://chat.whatsapp.com/GVc1h8iHryGCeIaf8Ee8ke",
-    icon: "whatsapp",
-  },
-] as const;
+
 </script>
 
 <template>
@@ -75,9 +50,9 @@ const socials = [
 
       <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
         <a
-          v-for="social in socials"
+          v-for="social in socialLinks"
           :key="social.name"
-          :href="social.link"
+          :href="social.href"
           target="_blank"
           rel="noopener noreferrer"
           class="group flex items-center justify-between gap-4 py-5"
@@ -112,7 +87,7 @@ const socials = [
           </span>
         </NuxtLink>
         <NuxtLink
-          to="/descargas"
+          to="/downloads"
           class="group inline-flex items-center gap-2 text-white/60 transition-colors hover:text-[#189C3B]"
         >
           [DESCARGAS]

@@ -29,7 +29,7 @@
             Redes
           </NuxtLink>
           <NuxtLink
-            to="/descargas"
+            to="/downloads"
             class="transition-colors hover:text-[#189C3B]"
           >
             Descargas

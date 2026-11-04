@@ -28,6 +28,18 @@ pnpm build
 pnpm preview
 ```
 
+## Pantalla ambiental
+
+Abrí `/wall` en el monitor o proyector del taller. El muro anima los personajes y el nombre del HackLab, con detalles de terminal, frases y hora de Cochabamba. La propuesta C fue elegida como versión final.
+
+Usá **Pausa** para detener la escena y las frases, y **Pantalla completa** en navegadores compatibles. El muro empieza en pausa si el dispositivo prefiere movimiento reducido.
+
+Abrí el panel de redes y QR con el botón o la tecla `R`; cerralo con `R` o `Esc`. Mientras esté abierto la escena queda en pausa. El QR principal apunta a `https://hacklab.brickheads.space/socials`; los otros usan los mismos enlaces de Contacto y Redes. Los SVG de QR están generados localmente en `public/images/qr/`; sus destinos están registrados en `src/data/wall-qr.json`. Si cambia un enlace, regenerar su QR antes de publicar.
+
+## Direcciones
+
+Las rutas usan nombres en inglés y los textos siguen en español: `/`, `/socials`, `/downloads` y `/wall`. La dirección anterior `/descargas` redirige permanentemente (301) a `/downloads`.
+
 ## Contacto
 
 - Email: hacklab.brickheads@gmail.com

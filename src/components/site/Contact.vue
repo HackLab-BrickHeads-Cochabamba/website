@@ -7,6 +7,7 @@ import {
   Terminal,
 } from "lucide-vue-next";
 import { reactive } from "vue";
+import { socialLinks } from "~/data/social-links";
 
 const formData = reactive({
   name: "",
@@ -24,28 +25,7 @@ const handleSendEmail = () => {
   window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 };
 
-const socials = [
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/HackLabBrickHeads",
-    icon: "facebook",
-  },
-  {
-    name: "Instagram",
-    href: "https://www.instagram.com/hacklabbrickheads/",
-    icon: "instagram",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/company/hacklab-brickheads-cochabamba/",
-    icon: "linkedin",
-  },
-  {
-    name: "YouTube",
-    href: "https://www.youtube.com/@HackLabBrickHeads",
-    icon: "youtube",
-  },
-] as const;
+
 
 const opportunities = [
   "Patrocinio de eventos y actividades",
@@ -124,7 +104,7 @@ const opportunities = [
             </p>
             <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
               <a
-                v-for="social in socials"
+                v-for="social in socialLinks"
                 :key="social.name"
                 :href="social.href"
                 target="_blank"

@@ -36,10 +36,11 @@ Criterio: cada descarga funciona y el ZIP contiene exclusivamente los recursos p
 
 ## 4. Pantalla ambiental `/wall`
 
-- [ ] Revisar el video local como referencia privada.
-- [ ] Proponer dirección visual y movimiento para revisión del usuario.
-- [ ] Implementar una animación web con los recursos públicos aprobados.
-- [ ] Comprobar pantalla completa, adaptación a pantallas y movimiento reducido.
+- [x] Revisar el video local como referencia privada.
+- [x] Proponer dirección visual y movimiento para revisión del usuario.
+- [x] Implementar una animación web con los recursos públicos aprobados.
+- [x] Comprobar la entrada a pantalla completa, la adaptación a móvil y escritorio y la pausa por teclado.
+- [ ] Confirmar pantalla completa sostenida en el proyector y el arranque en pausa con movimiento reducido activado en el sistema.
 
 Criterio: pantalla ambiental continua y fluida; el MP4 original no se publica.
 
@@ -56,4 +57,38 @@ El 4 de noviembre de 2026, `pnpm build` terminó correctamente. Las puntuaciones
 
 ## Primera implementación
 
-Catálogo de 12 variantes implementado. Integridad del ZIP y coincidencia de originales verificadas. Build correcto y revisión visual inicial del catálogo realizada. Queda pendiente completar QA visual a distintas densidades, descargas mediante interacción en móvil y desktop y auditoría Lighthouse. `/wall` sigue pendiente de propuesta visual.
+Catálogo de 12 variantes implementado. Integridad del ZIP y coincidencia de originales verificadas. Build correcto y revisión visual inicial del catálogo realizada. Queda pendiente completar QA visual a distintas densidades, descargas mediante interacción en móvil y desktop y auditoría Lighthouse.
+
+## Implementación de la pantalla ambiental
+
+### Exploración posterior solicitada por el usuario
+
+La primera propuesta resultó demasiado estática y alejada de la estética del sitio. Se conserva `/wall` como referencia hasta elegir una versión nueva. El objetivo es una pantalla genérica para ferias, talleres y proyecciones, dinámica, personal y artesanal. Conservar hora e información y frases; respetar negro de marca, verde, blanco, Oxanium y terminal.
+
+- [x] Desarrollar con tres subagentes Astra las variantes A (logo), B (terminal) y C (mezcla) en `/wall-a`, `/wall-b` y `/wall-c`.
+- [x] Integrar estructura y controles comunes para comparar las propuestas.
+- [x] Añadir panel oculto de redes con QR principal a `https://hacklab.brickheads.space/socials` y QR individuales.
+- [x] Pausar animación y frases mientras el panel esté abierto; abrir/cerrar con R y cerrar con Esc.
+- [x] Elegir con el usuario la dirección final: propuesta C.
+- [x] Reemplazar `/wall` por la propuesta C y retirar las tres rutas de comparación y las animaciones descartadas.
+- [ ] Comprobar escaneo físico de los QR en el monitor o proyector de destino.
+
+### Ajustes de navegación y contacto
+
+- [x] Adoptar rutas en inglés: `/downloads`, con redirección 301 desde `/descargas`.
+- [x] Actualizar enlaces internos y compartir los enlaces de redes entre Contacto y `/socials`, incluyendo WhatsApp.
+
+**Circuito abierto** presenta el logo público de los cinco BrickHeads en una placa isométrica dibujada en SVG. Cada 18 segundos cambia la nota del taller y se ilumina otro grupo de pistas. El pie permite pausar la secuencia y entrar en pantalla completa. La animación empieza pausada con movimiento reducido y se suspende al ocultar la pestaña. Se verificó `pnpm build` y la ausencia de los recursos privados en la salida pública.
+
+Revisión en el navegador a 1440 × 900 y 390 × 844: los controles quedaron visibles en móvil y ambas vistas ocuparon el ancho disponible sin desbordamiento horizontal. Se verificó que Enter pausa y reanuda la animación y que la consola quedó libre de advertencias y errores. Al activar pantalla completa el botón cambió a «Salir»; el navegador integrado regresó a ventana en la siguiente interacción de prueba. La preferencia de movimiento reducido se revisó en el código. Queda pendiente comprobarla desde el sistema y observar el muro en sesión prolongada en el proyector.
+
+
+### Validación de las tres propuestas
+
+Build de producción correcto. Las rutas `/wall-a`, `/wall-b`, `/wall-c`, `/downloads` y las rutas existentes responden 200. `/descargas` responde 301 hacia `/downloads`. Se verificó el enlace de WhatsApp en el HTML de Contacto y las seis rutas de SVG QR. Los seis SVG coinciden con sus destinos registrados y mantienen cuatro módulos de margen blanco.
+
+Se revisaron las tres propuestas en el navegador y B/C en móvil. Se ajustó la altura común tras detectar scroll vertical en A: se confirmó en producción que A ocupa 900 px en desktop de 1440×900 y 844 px en móvil de 390×844, con controles visibles. R abre el diálogo, Esc lo cierra, la selección cambia el destino y la escena se pausa al abrirlo. Quedan el escaneo físico de QR, el movimiento reducido activado desde el sistema y la prueba prolongada de proyector. Los cambios siguen locales, sin commit ni push.
+
+## Selección final
+
+El usuario eligió C. `/wall` usa `WallScreen` y `WallAnimation`; se retiraron la placa original, A, B y las rutas temporales de las tres propuestas. Se conserva hora, frases, pausa, pantalla completa y panel de redes con QR.
