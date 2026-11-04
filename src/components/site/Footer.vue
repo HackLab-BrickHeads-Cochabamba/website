@@ -8,7 +8,8 @@
             alt="HackLab BrickHeads"
             width="256"
             height="64"
-            format="webp"
+            format="png"
+            densities="1x 2x"
             sizes="128px"
             class="h-7 w-auto object-contain"
           />

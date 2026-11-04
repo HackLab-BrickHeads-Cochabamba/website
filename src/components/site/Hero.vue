@@ -38,8 +38,9 @@ const pillars = [
             alt="HackLab BrickHeads"
             width="896"
             height="224"
-            format="webp"
-            sizes="(min-width: 1024px) 560px, 288px"
+            format="png"
+            densities="1x 2x"
+            sizes="100vw sm:576px lg:560px"
             preload
             loading="eager"
             class="mt-6 w-full max-w-xl object-contain object-left"
@@ -89,10 +90,11 @@ const pillars = [
           <NuxtImg
             src="/images/heads_white.png"
             alt="HackLab Logo"
-            width="448"
-            height="448"
-            format="webp"
-            sizes="(min-width: 1024px) 320px, 224px"
+            width="4047"
+            height="4070"
+            format="png"
+            densities="1x 2x"
+            sizes="208px sm:256px lg:320px"
             preload
             loading="eager"
             class="relative w-52 object-contain drop-shadow-[0_0_45px_rgba(24,156,59,0.35)] sm:w-64 lg:w-80"

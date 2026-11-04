@@ -48,10 +48,11 @@ const socials = [
         <NuxtImg
           src="/images/heads_white.png"
           alt="HackLab BrickHeads"
-          width="448"
-          height="448"
-          format="webp"
-          sizes="112px"
+          width="4047"
+          height="4070"
+          format="png"
+            densities="1x 2x"
+          sizes="96px"
           class="h-24 w-24 object-contain"
         />
         <div>

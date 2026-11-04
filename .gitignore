@@ -37,6 +37,9 @@ coverage/
 # AI tooling (local only)
 .opencode/
 
+# Internal brand originals and references (never publish)
+/resources/
+
 # Temporary files
 *.tmp
 *.temp

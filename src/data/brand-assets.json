@@ -1,0 +1,122 @@
+[
+  {
+    "filename": "square_white.png",
+    "title": "Logo vertical · claro",
+    "description": "Composición vertical con el nombre y los cinco personajes. Para fondos oscuros.",
+    "background": "dark",
+    "image": "/images/square_white.png",
+    "width": 5596,
+    "height": 5652,
+    "bytes": 212056
+  },
+  {
+    "filename": "square_dark.png",
+    "title": "Logo vertical · oscuro",
+    "description": "Composición vertical con el nombre y los cinco personajes. Para fondos claros.",
+    "background": "light",
+    "image": "/images/square_dark.png",
+    "width": 5596,
+    "height": 5666,
+    "bytes": 222016
+  },
+  {
+    "filename": "large_white.png",
+    "title": "Logo horizontal · claro",
+    "description": "Personajes a la izquierda y nombre a la derecha. Para fondos oscuros.",
+    "background": "dark",
+    "image": "/images/large_white.png",
+    "width": 18778,
+    "height": 3753,
+    "bytes": 406158
+  },
+  {
+    "filename": "large_dark.png",
+    "title": "Logo horizontal · oscuro",
+    "description": "Personajes a la izquierda y nombre a la derecha. Para fondos claros.",
+    "background": "light",
+    "image": "/images/large_dark.png",
+    "width": 18780,
+    "height": 3769,
+    "bytes": 423253
+  },
+  {
+    "filename": "large_white_bg.png",
+    "title": "Logo horizontal · fondo oscuro",
+    "description": "Versión horizontal con fondo oscuro incorporado.",
+    "background": "dark",
+    "image": "/images/large_white_bg.png",
+    "width": 19137,
+    "height": 4177,
+    "bytes": 518524
+  },
+  {
+    "filename": "letters_white.png",
+    "title": "Nombre · claro",
+    "description": "HACKLAB en blanco y BRICK-HEADS en verde. Para fondos oscuros.",
+    "background": "dark",
+    "image": "/images/letters_white.png",
+    "width": 14841,
+    "height": 3711,
+    "bytes": 283148
+  },
+  {
+    "filename": "letters_dark.png",
+    "title": "Nombre · oscuro",
+    "description": "HACKLAB en oscuro y BRICK-HEADS en verde. Para fondos claros.",
+    "background": "light",
+    "image": "/images/letters_dark.png",
+    "width": 14841,
+    "height": 3711,
+    "bytes": 286090
+  },
+  {
+    "filename": "letters_dark_bg.png",
+    "title": "Nombre · fondo oscuro",
+    "description": "HACKLAB en blanco y BRICK-HEADS en verde, con fondo oscuro incorporado.",
+    "background": "dark",
+    "image": "/images/letters_dark_bg.png",
+    "width": 15219,
+    "height": 4178,
+    "bytes": 347251
+  },
+  {
+    "filename": "heads_white.png",
+    "title": "Personajes · claros",
+    "description": "Los cinco personajes conectados, en blanco. Para fondos oscuros.",
+    "background": "dark",
+    "image": "/images/heads_white.png",
+    "width": 4047,
+    "height": 4070,
+    "bytes": 125308
+  },
+  {
+    "filename": "heads_dark.png",
+    "title": "Personajes · oscuros",
+    "description": "Los cinco personajes conectados, en oscuro. Para fondos claros.",
+    "background": "light",
+    "image": "/images/heads_dark.png",
+    "width": 4047,
+    "height": 4071,
+    "bytes": 132542
+  },
+  {
+    "filename": "circle_dark.png",
+    "title": "Emblema circular · negro",
+    "description": "Personajes blancos sobre un círculo oscuro con textura.",
+    "background": "dark",
+    "image": "/images/circle_dark.png",
+    "width": 5520,
+    "height": 5521,
+    "bytes": 1081792
+  },
+  {
+    "filename": "circle_green.png",
+    "title": "Emblema circular · verde",
+    "description": "Personajes blancos sobre un círculo verde con textura.",
+    "background": "dark",
+    "image": "/images/circle_green.png",
+    "width": 5525,
+    "height": 5525,
+    "bytes": 1171544
+  }
+]
