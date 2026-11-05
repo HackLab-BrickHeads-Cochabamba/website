@@ -54,7 +54,7 @@ Los informes y las mediciones de auditoría se conservan solo en `.perf-reports/
 
 - Email: hacklab.brickheads@gmail.com
 - Ubicación: [Proyecto mARTadero, calle 27 de Agosto y Ollantay, Cochabamba](https://www.google.com/maps/search/?api=1&query=Proyecto+mARTadero%2C+Calle+27+de+Agosto+y+Ollantay%2C+Cochabamba%2C+Bolivia)
-- Horarios: Sábados de 15:00 a 18:00. Puedes llegar directamente, sin coordinar antes.
+- Horarios: Sábados de 15:00 a 18:00.
 
 ## Recursos de marca
 

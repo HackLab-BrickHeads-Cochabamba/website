@@ -94,8 +94,6 @@ const opportunities = [
                 </p>
                 <p class="mt-1 text-sm leading-relaxed text-white/80">
                   Sábados de 15:00 a 18:00
-                  <br />
-                  Puedes llegar directamente, sin coordinar antes.
                 </p>
               </div>
             </div>

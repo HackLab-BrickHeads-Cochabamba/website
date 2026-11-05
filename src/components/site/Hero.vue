@@ -56,7 +56,7 @@ const pillars = [
           <p class="mt-4 max-w-xl text-base leading-relaxed text-white/70">
             Cualquier persona puede participar en nuestras reuniones e involucrarse
             en las actividades y proyectos del HackLab. Nos encontramos los sábados
-            de 15:00 a 18:00 en el mARTadero; puedes llegar directamente.
+            de 15:00 a 18:00 en el mARTadero.
           </p>
 
           <div class="mt-10 flex flex-wrap items-center gap-6">
