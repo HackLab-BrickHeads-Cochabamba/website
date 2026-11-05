@@ -1,4 +1,5 @@
 <script setup lang="ts">
+usePublicPageSeo("/socials");
 import { ArrowUpRight } from "lucide-vue-next";
 import { socialLinks } from "~/data/social-links";
 
@@ -10,7 +11,6 @@ useSeoMeta({
   ogDescription:
     "Sigue a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp.",
   ogType: "website",
-  twitterCard: "summary",
 });
 
 

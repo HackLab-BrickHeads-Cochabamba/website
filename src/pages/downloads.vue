@@ -1,4 +1,5 @@
 <script setup lang="ts">
+usePublicPageSeo("/downloads");
 import { Download, FileImage, Package } from "lucide-vue-next";
 import downloads from "~/data/brand-assets.json";
 
@@ -10,7 +11,6 @@ useSeoMeta({
   ogDescription:
     "Descarga los logos y recursos de HackLab BrickHeads. Recursos para difundir las actividades de la comunidad.",
   ogType: "website",
-  twitterCard: "summary",
 });
 
 </script>
