@@ -5,26 +5,7 @@ import {
   MapPin,
   Terminal,
 } from "lucide-vue-next";
-import { reactive } from "vue";
 import { socialLinks } from "~/data/social-links";
-
-const formData = reactive({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-
-const handleOpenEmail = () => {
-  const recipient = "hacklab.brickheads@gmail.com";
-  const subject = encodeURIComponent(formData.subject || "Contacto desde HackLab");
-  const body = encodeURIComponent(
-    `Nombre: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`,
-  );
-  window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-};
-
-
 
 const opportunities = [
   "Organizar actividades y encuentros",
@@ -40,7 +21,7 @@ const opportunities = [
     class="relative border-t border-white/5 bg-white/[0.015] py-24 sm:py-32"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <div class="mx-auto max-w-3xl">
         <div>
           <SiteSectionHeader
             label="// Contacto"
@@ -146,104 +127,6 @@ const opportunities = [
           </div>
         </div>
 
-        <div
-          class="border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:mt-16"
-        >
-          <p class="font-mono text-xs text-[#189C3B]">
-            > hacklab@brickheads:~$ preparar_correo
-          </p>
-
-          <p id="email-help" class="mt-4 text-sm leading-relaxed text-white/70">
-            Este formulario abre tu aplicación de correo con el mensaje preparado;
-            no lo envía desde la web. Si no tienes una configurada, puedes escribir
-            directamente a
-            <a href="mailto:hacklab.brickheads@gmail.com" class="break-all underline underline-offset-4">hacklab.brickheads@gmail.com</a>
-            o contactarnos por nuestras redes.
-          </p>
-
-          <form aria-describedby="email-help" class="mt-8 space-y-6" @submit.prevent="handleOpenEmail">
-            <div>
-              <label
-                for="name"
-                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
-              >
-                Nombre
-              </label>
-              <input
-                id="name"
-                v-model="formData.name"
-                type="text"
-                autocomplete="name"
-                required
-                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="Tu nombre"
-              />
-            </div>
-
-            <div>
-              <label
-                for="email"
-                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                v-model="formData.email"
-                type="email"
-                autocomplete="email"
-                required
-                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="tu@email.com"
-              />
-            </div>
-
-            <div>
-              <label
-                for="subject"
-                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
-              >
-                Asunto
-              </label>
-              <input
-                id="subject"
-                v-model="formData.subject"
-                type="text"
-                class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="¿Sobre qué quieres conversar?"
-              />
-            </div>
-
-            <div>
-              <label
-                for="message"
-                class="block font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
-              >
-                Mensaje
-              </label>
-              <textarea
-                id="message"
-                v-model="formData.message"
-                rows="5"
-                required
-                class="mt-2 w-full resize-none border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="Cuéntanos sobre tu idea..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="inline-flex w-full items-center justify-center gap-2 bg-[#189C3B] px-6 py-4 font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#000] transition-colors hover:bg-[#20BC4A]"
-            >
-              <Mail class="h-5 w-5" />
-              {{ "[ABRIR_CORREO]" }}
-            </button>
-
-            <p class="text-center font-mono text-xs text-white/60">
-              El mensaje se prepara en tu aplicación de correo. Debes enviarlo desde allí.
-            </p>
-          </form>
-        </div>
       </div>
     </div>
   </section>
