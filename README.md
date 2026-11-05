@@ -24,7 +24,7 @@ pnpm dev
 pnpm build
 ```
 
-El build pregenera las cuatro rutas públicas y sus imágenes optimizadas, además de archivos Brotli/gzip. Los cambios de contenido requieren un nuevo build. Manifiesto, Actividades y la galería actual se muestran desde el HTML sin hidratarse; si se añade interacción a esas secciones, habrá que habilitar su hidratación. Contacto se hidrata al entrar en pantalla.
+El build pregenera las cuatro rutas públicas y sus imágenes optimizadas, además de archivos Brotli/gzip. Los cambios de contenido requieren un nuevo build. Manifiesto y Actividades se muestran desde el HTML sin hidratarse. Galería y Contacto se hidratan al entrar en pantalla.
 
 ## Preview
 
@@ -85,3 +85,16 @@ git push origin dev
 ```
 
 `origin` es el repositorio personal; `upstream` apunta al repositorio de la organización. Este flujo no modifica `upstream`.
+
+
+## Galería
+
+La selección pública está en `src/data/gallery.json`. Los originales se conservan en `resources/gallery/`, ignorado por Git. Para regenerar miniaturas y fotografías del visor con los originales disponibles:
+
+```bash
+node scripts/prepare_gallery_assets.mjs
+```
+
+El script usa Sharp a través de la herramienta de imágenes ya instalada, exporta únicamente la lista seleccionada, respeta la orientación, limita el tamaño del visor a 1920 px, no amplía originales pequeños y elimina metadatos EXIF/GPS. Las miniaturas se recortan a cuadrado antes de reducirlas y se exportan a 640/960 px, sin superar la resolución disponible; el visor conserva el encuadre completo. Todas las fotos aparecen bajo «Un recorrido por nuestra comunidad». Las tres más antiguas, sin fecha exacta, abren la galería; después siguen las fechas conocidas de antiguas a recientes. No deducir fechas a partir de identificadores de Facebook.
+
+El visor muestra la foto completa sin recortar, su contexto y un contador. Permite navegar con botones, teclas ←/→ y deslizamiento horizontal; Esc cierra y devuelve el foco a la miniatura.

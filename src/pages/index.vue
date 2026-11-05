@@ -17,7 +17,7 @@ useSeoMeta({
     <LazySiteAbout hydrate-never />
     <LazySiteServices hydrate-never />
     <!-- <SiteBlog /> -->
-    <LazySiteGallery hydrate-never />
+    <LazySiteGallery hydrate-on-visible />
     <LazySiteContact hydrate-on-visible />
     <SiteFooter />
   </div>
