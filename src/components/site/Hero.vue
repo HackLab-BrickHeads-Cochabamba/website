@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { BookOpen, Cpu, Lightbulb, Users } from "lucide-vue-next";
-
 const pillars = [
-  { icon: Cpu, label: "Tecnología" },
-  { icon: BookOpen, label: "Educación" },
-  { icon: Lightbulb, label: "Conocimiento" },
-  { icon: Users, label: "Sociedad" },
+  { initial: "T", rest: "ecnología" },
+  { initial: "E", rest: "ducación" },
+  { initial: "C", rest: "onocimiento" },
+  { initial: "S", rest: "ociedad" },
 ];
 </script>
 
@@ -60,7 +58,6 @@ const pillars = [
           </p>
 
           <div class="mt-10 flex flex-wrap items-center gap-6">
-
             <a
               href="#services"
               class="group inline-flex items-center gap-2 font-mono text-sm uppercase tracking-[0.18em] text-white/60 transition-colors hover:text-white"
@@ -76,56 +73,82 @@ const pillars = [
           </div>
         </div>
 
-        <div class="relative flex items-center justify-center lg:justify-end">
-          <div
-            class="absolute h-64 w-64 rounded-full border border-[#189C3B]/20 sm:h-80 sm:w-80"
-          ></div>
-          <div
-            class="absolute h-80 w-80 rounded-full border border-[#189C3B]/10 sm:h-96 sm:w-96"
-          ></div>
-
+        <div class="heads-stage" aria-hidden="true">
+          <div class="heads-orbit heads-orbit-inner"></div>
+          <div class="heads-orbit heads-orbit-outer"></div>
           <NuxtImg
             src="/images/heads_white.png"
-            alt="HackLab Logo"
+            alt=""
             width="4047"
             height="4070"
             format="png"
             densities="1x 2x"
-            sizes="208px sm:256px lg:320px"
+            sizes="240px sm:288px lg:352px"
             fetchpriority="high"
             preload
             loading="eager"
-            class="relative w-52 object-contain drop-shadow-[0_0_45px_rgba(24,156,59,0.35)] sm:w-64 lg:w-80"
+            class="heads-art"
           />
-
-          <span
-            class="absolute bottom-2 left-0 font-mono text-[11px] uppercase tracking-[0.2em] text-[#189C3B] sm:bottom-6"
-          >
-            hacklab@brickheads:~$
-            <span class="motion-safe:animate-pulse" aria-hidden="true">▂</span>
-          </span>
         </div>
       </div>
 
-      <div
-        class="mt-16 grid grid-cols-2 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-4"
-      >
-        <div
-          v-for="pillar in pillars"
-          :key="pillar.label"
-          class="group flex items-center gap-3 bg-black px-5 py-5"
-        >
-          <component
-            :is="pillar.icon"
-            class="h-5 w-5 shrink-0 text-[#189C3B] transition-transform duration-300 group-hover:-translate-y-0.5"
-          />
-          <span
-            class="font-mono text-xs uppercase tracking-[0.18em] text-white/70 transition-colors group-hover:text-white"
-          >
-            {{ pillar.label }}
-          </span>
+      <div class="tecs" aria-label="TECS: Tecnología, Educación, Conocimiento y Sociedad. Principios del HackLab.">
+        <p class="tecs-caption">// Nuestros principios</p>
+        <ul class="tecs-words">
+          <li v-for="(pillar, index) in pillars" :key="pillar.initial" :style="{ '--step': index }">
+            <span class="tecs-initial">{{ pillar.initial }}</span><span>{{ pillar.rest }}</span>
+          </li>
+        </ul>
+        <div class="tecs-result" aria-hidden="true">
+          <span class="tecs-thread"></span>
+          <span class="tecs-acronym">TECS</span>
+          <span class="tecs-equals">↳</span>
+          <span class="tecs-signature">Lo que nos mueve como <strong>HackLab<span>.</span></strong></span>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.heads-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 28rem);
+  aspect-ratio: 1;
+  justify-self: center;
+  isolation: isolate;
+}
+.heads-art { width: 78%; height: auto; position: relative; filter: drop-shadow(0 0 32px rgb(24 156 59 / .2)); }
+.heads-orbit { position: absolute; border: 1px solid rgb(24 156 59 / .15); border-radius: 50%; }
+.heads-orbit-inner { width: 88%; height: 88%; }
+.heads-orbit-outer { width: 100%; height: 100%; border-color: rgb(24 156 59 / .08); }
+.tecs { margin-top: 4rem; border-top: 1px solid rgb(255 255 255 / .1); padding-top: 1.5rem; }
+.tecs-caption { font-family: monospace; font-size: .7rem; text-transform: uppercase; letter-spacing: .18em; color: rgb(255 255 255 / .5); }
+.tecs-words { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin-top: 1.25rem; list-style: none; padding: 0; }
+.tecs-words li { color: rgb(255 255 255 / .75); font-size: clamp(1rem, 1.8vw, 1.4rem); }
+.tecs-initial { color: #189C3B; font-weight: 700; }
+.tecs-result { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.5rem; min-height: 2rem; }
+.tecs-thread { width: 2rem; height: 1px; background: #189C3B; transform-origin: left; }
+.tecs-acronym { color: #189C3B; font-family: monospace; font-size: 1rem; letter-spacing: .2em; }
+.tecs-equals { color: rgb(255 255 255 / .4); }
+.tecs-signature { color: rgb(255 255 255 / .55); font-size: .875rem; }
+.tecs-signature strong { color: rgb(255 255 255 / .85); font-weight: 500; }
+.tecs-signature strong span { color: #189C3B; }
+@media (max-width: 639px) {
+  .heads-stage { width: min(100%, 19rem); }
+  .tecs-words { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .tecs-thread { width: 1rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tecs-words li { animation: word-arrives .7s both; animation-delay: calc(.5s + var(--step) * .4s); }
+  .tecs-initial { display: inline-block; animation: initial-inks 1.2s both; animation-delay: calc(2.4s + var(--step) * .18s); }
+  .tecs-result { animation: word-arrives .8s 3.8s both; }
+  .tecs-thread { animation: thread-draws .8s 3.8s both; }
+  .tecs-signature { animation: word-arrives .8s 4.6s both; }
+}
+@keyframes word-arrives { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes initial-inks { 0%, 100% { color: #189C3B; } 45% { color: #fff; text-shadow: 0 0 12px rgb(24 156 59 / .55); } }
+@keyframes thread-draws { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+</style>
