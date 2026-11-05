@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Mail,
   MapPin,
-  Send,
   Terminal,
 } from "lucide-vue-next";
 import { reactive } from "vue";
@@ -16,7 +15,7 @@ const formData = reactive({
   message: "",
 });
 
-const handleSendEmail = () => {
+const handleOpenEmail = () => {
   const recipient = "hacklab.brickheads@gmail.com";
   const subject = encodeURIComponent(formData.subject || "Contacto desde HackLab");
   const body = encodeURIComponent(
@@ -28,10 +27,10 @@ const handleSendEmail = () => {
 
 
 const opportunities = [
-  "Patrocinio de eventos y actividades",
-  "Proyectos colaborativos open source",
-  "Charlas tecnicas y workshops",
-  "Donacion de equipos y recursos",
+  "Organizar actividades y encuentros",
+  "Participar en proyectos y proponer ideas",
+  "Compartir conocimientos en charlas y talleres",
+  "Donar equipos y componentes para experimentar",
 ];
 </script>
 
@@ -45,9 +44,8 @@ const opportunities = [
         <div>
           <SiteSectionHeader
             label="// Contacto"
-            title="Unete al"
-            highlight="HackLab"
-            description="> Colabora, aprende y construye con nosotros"
+            title="Conversemos"
+            description="> Pregunta, propón una idea o ven a conocernos"
           />
 
           <div class="mt-12 divide-y divide-white/10 border-t border-white/10">
@@ -135,7 +133,7 @@ const opportunities = [
             <p
               class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
             >
-              > Oportunidades de Colaboracion
+              > Formas de participar
             </p>
             <ul class="mt-4 space-y-2 text-sm text-white/60">
               <li
@@ -154,10 +152,18 @@ const opportunities = [
           class="border border-white/10 bg-white/[0.02] p-6 sm:p-8 lg:mt-16"
         >
           <p class="font-mono text-xs text-[#189C3B]">
-            > root@hacklab:~$ send_message --to=admin
+            > hacklab@brickheads:~$ preparar_correo
           </p>
 
-          <form class="mt-8 space-y-6" @submit.prevent="handleSendEmail">
+          <p id="email-help" class="mt-4 text-sm leading-relaxed text-white/70">
+            Este formulario abre tu aplicación de correo con el mensaje preparado;
+            no lo envía desde la web. Si no tienes una configurada, puedes escribir
+            directamente a
+            <a href="mailto:hacklab.brickheads@gmail.com" class="break-all underline underline-offset-4">hacklab.brickheads@gmail.com</a>
+            o contactarnos por nuestras redes.
+          </p>
+
+          <form aria-describedby="email-help" class="mt-8 space-y-6" @submit.prevent="handleOpenEmail">
             <div>
               <label
                 for="name"
@@ -169,6 +175,7 @@ const opportunities = [
                 id="name"
                 v-model="formData.name"
                 type="text"
+                autocomplete="name"
                 required
                 class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
                 placeholder="Tu nombre"
@@ -186,6 +193,7 @@ const opportunities = [
                 id="email"
                 v-model="formData.email"
                 type="email"
+                autocomplete="email"
                 required
                 class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
                 placeholder="tu@email.com"
@@ -204,7 +212,7 @@ const opportunities = [
                 v-model="formData.subject"
                 type="text"
                 class="mt-2 w-full border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="En que estas interesado?"
+                placeholder="¿Sobre qué quieres conversar?"
               />
             </div>
 
@@ -221,7 +229,7 @@ const opportunities = [
                 rows="5"
                 required
                 class="mt-2 w-full resize-none border-b border-white/15 bg-transparent py-2 text-sm text-white placeholder:text-white/60 focus:border-[#189C3B] focus:outline-none"
-                placeholder="Cuentanos sobre tu idea..."
+                placeholder="Cuéntanos sobre tu idea..."
               ></textarea>
             </div>
 
@@ -229,12 +237,12 @@ const opportunities = [
               type="submit"
               class="inline-flex w-full items-center justify-center gap-2 bg-[#189C3B] px-6 py-4 font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#000] transition-colors hover:bg-[#20BC4A]"
             >
-              <Send class="h-5 w-5" />
-              {{ "[ENVIAR_MENSAJE]" }}
+              <Mail class="h-5 w-5" />
+              {{ "[ABRIR_CORREO]" }}
             </button>
 
             <p class="text-center font-mono text-xs text-white/60">
-              > Responderemos en menos de 48 horas
+              El mensaje se prepara en tu aplicación de correo. Debes enviarlo desde allí.
             </p>
           </form>
         </div>
