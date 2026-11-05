@@ -1,12 +1,3 @@
-<script setup lang="ts">
-const pillars = [
-  { initial: "T", rest: "ecnología" },
-  { initial: "E", rest: "ducación" },
-  { initial: "C", rest: "onocimiento" },
-  { initial: "S", rest: "ociedad" },
-];
-</script>
-
 <template>
   <section id="hero" class="relative min-h-screen overflow-hidden bg-black pt-20">
     <h1 class="sr-only">HackLab BrickHeads — Espacio hacker en Cochabamba</h1>
@@ -91,21 +82,6 @@ const pillars = [
           />
         </div>
       </div>
-
-      <div class="tecs" aria-label="TECS: Tecnología, Educación, Conocimiento y Sociedad. Principios del HackLab.">
-        <p class="tecs-caption">// Nuestros principios</p>
-        <ul class="tecs-words">
-          <li v-for="(pillar, index) in pillars" :key="pillar.initial" :style="{ '--step': index }">
-            <span class="tecs-initial">{{ pillar.initial }}</span><span>{{ pillar.rest }}</span>
-          </li>
-        </ul>
-        <div class="tecs-result" aria-hidden="true">
-          <span class="tecs-thread"></span>
-          <span class="tecs-acronym">TECS</span>
-          <span class="tecs-equals">↳</span>
-          <span class="tecs-signature">Lo que nos mueve como <strong>HackLab<span>.</span></strong></span>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -124,31 +100,7 @@ const pillars = [
 .heads-orbit { position: absolute; border: 1px solid rgb(24 156 59 / .15); border-radius: 50%; }
 .heads-orbit-inner { width: 88%; height: 88%; }
 .heads-orbit-outer { width: 100%; height: 100%; border-color: rgb(24 156 59 / .08); }
-.tecs { margin-top: 4rem; border-top: 1px solid rgb(255 255 255 / .1); padding-top: 1.5rem; }
-.tecs-caption { font-family: monospace; font-size: .7rem; text-transform: uppercase; letter-spacing: .18em; color: rgb(255 255 255 / .5); }
-.tecs-words { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin-top: 1.25rem; list-style: none; padding: 0; }
-.tecs-words li { color: rgb(255 255 255 / .75); font-size: clamp(1rem, 1.8vw, 1.4rem); }
-.tecs-initial { color: #189C3B; font-weight: 700; }
-.tecs-result { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.5rem; min-height: 2rem; }
-.tecs-thread { width: 2rem; height: 1px; background: #189C3B; transform-origin: left; }
-.tecs-acronym { color: #189C3B; font-family: monospace; font-size: 1rem; letter-spacing: .2em; }
-.tecs-equals { color: rgb(255 255 255 / .4); }
-.tecs-signature { color: rgb(255 255 255 / .55); font-size: .875rem; }
-.tecs-signature strong { color: rgb(255 255 255 / .85); font-weight: 500; }
-.tecs-signature strong span { color: #189C3B; }
 @media (max-width: 639px) {
   .heads-stage { width: min(100%, 19rem); }
-  .tecs-words { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .tecs-thread { width: 1rem; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .tecs-words li { animation: word-arrives .7s both; animation-delay: calc(.5s + var(--step) * .4s); }
-  .tecs-initial { display: inline-block; animation: initial-inks 1.2s both; animation-delay: calc(2.4s + var(--step) * .18s); }
-  .tecs-result { animation: word-arrives .8s 3.8s both; }
-  .tecs-thread { animation: thread-draws .8s 3.8s both; }
-  .tecs-signature { animation: word-arrives .8s 4.6s both; }
-}
-@keyframes word-arrives { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes initial-inks { 0%, 100% { color: #189C3B; } 45% { color: #fff; text-shadow: 0 0 12px rgb(24 156 59 / .55); } }
-@keyframes thread-draws { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 </style>

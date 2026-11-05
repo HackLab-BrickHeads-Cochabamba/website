@@ -21,6 +21,8 @@ const manifesto = [
             highlight="Principios"
           />
 
+          <SiteTecsPrinciples />
+
           <p class="mt-6 max-w-sm font-mono text-sm text-white/60">
             <span class="text-[#189C3B]">></span> Conocimiento libre, tecnología
             abierta, sociedad mejor
