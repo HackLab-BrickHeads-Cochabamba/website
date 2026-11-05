@@ -71,11 +71,18 @@ const opportunities = [
                 <p
                   class="font-mono text-[11px] uppercase tracking-[0.2em] text-white/60"
                 >
-                  Ubicacion
+                  Ubicación
                 </p>
-                <p class="mt-1 text-sm text-white/80">
-                  Proyecto mARTadero, Cochabamba
-                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&amp;query=Proyecto+mARTadero%2C+Calle+27+de+Agosto+y+Ollantay%2C+Cochabamba%2C+Bolivia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-1 inline-block text-sm leading-relaxed text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#189C3B]"
+                >
+                  Proyecto mARTadero<br />
+                  Calle 27 de Agosto y Ollantay, Cochabamba<br />
+                  <span class="text-xs">Ver ubicación en Google Maps ↗</span>
+                </a>
               </div>
             </div>
 
@@ -88,9 +95,9 @@ const opportunities = [
                   Horarios
                 </p>
                 <p class="mt-1 text-sm leading-relaxed text-white/80">
-                  Sabados 15:00 - 18:00
+                  Sábados de 15:00 a 18:00
                   <br />
-                  Miercoles (virtual) 21:00 - 22:00
+                  Puedes llegar directamente, sin coordinar antes.
                 </p>
               </div>
             </div>
