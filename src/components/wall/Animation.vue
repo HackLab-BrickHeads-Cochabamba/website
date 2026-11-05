@@ -56,6 +56,10 @@
   color: #189C3B;
 }
 .marks {
+  --heads-size: min(64cqw, 74cqh);
+  --docked-size: min(22cqw, 50cqh);
+  --name-x: calc(min(11cqw, 25cqh) + 1cqw);
+  --dock-x: calc(-1cqw - min(32cqw, 80cqh));
   display: grid;
   place-items: center;
   position: absolute;
@@ -66,14 +70,14 @@
   grid-area: 1 / 1;
 }
 .heads {
-  width: min(64cqw, 74cqh);
+  width: var(--heads-size);
   height: auto;
   animation: dock 26s ease-in-out infinite;
 }
 .name {
   width: min(64cqw, 160cqh);
   display: grid;
-  transform: translateX(9cqw);
+  transform: translateX(var(--name-x));
 }
 .strip {
   grid-area: 1 / 1;
@@ -119,12 +123,12 @@
   50% { transform: translate(1cqw, -1.5cqh); }
 }
 @keyframes dock {
-  0%, 100% { transform: translate(-2cqw, 1cqh) rotate(-5deg); }
-  18% { transform: translate(5cqw, -2cqh) rotate(9deg) scale(1.03); }
-  34% { transform: translate(-1cqw, 1cqh) rotate(-3deg) scale(0.95); }
-  45%, 74% { transform: translateX(-33cqw) rotate(0deg) scale(0.26); }
-  83% { transform: translate(-26cqw, -4cqh) rotate(-12deg) scale(0.34); }
-  92% { transform: translate(0, 2cqh) rotate(6deg) scale(0.94); }
+  0%, 100% { width: var(--heads-size); transform: translate(-2cqw, 1cqh) rotate(-5deg); }
+  18% { width: var(--heads-size); transform: translate(5cqw, -2cqh) rotate(9deg) scale(1.03); }
+  34% { width: var(--heads-size); transform: translate(-1cqw, 1cqh) rotate(-3deg) scale(0.95); }
+  45%, 74% { width: var(--docked-size); transform: translateX(var(--dock-x)) rotate(0deg); }
+  83% { width: min(28cqw, 60cqh); transform: translate(calc(var(--dock-x) + 4cqw), -4cqh) rotate(-12deg); }
+  92% { width: var(--heads-size); transform: translate(0, 2cqh) rotate(6deg) scale(0.94); }
 }
 @keyframes assemble {
   0%, 38%, 100% { opacity: 0; transform: translateX(var(--arrival)); }
@@ -137,7 +141,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .spool :is(.marks, .heads, .strip, .packet) { animation: none; }
-  .heads { transform: translateX(-33cqw) scale(0.26); }
+  .heads { width: var(--docked-size); transform: translateX(var(--dock-x)); }
   .packet { visibility: hidden; }
 }
 </style>
