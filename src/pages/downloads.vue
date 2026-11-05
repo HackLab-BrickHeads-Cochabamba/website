@@ -73,6 +73,7 @@ useSeoMeta({
             <a
               :href="item.image"
               :download="item.filename"
+              :aria-label="`Descargar ${item.title} (PNG)`"
               class="mt-4 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#189C3B] transition-colors hover:text-white"
             >
               <Download class="h-4 w-4" />

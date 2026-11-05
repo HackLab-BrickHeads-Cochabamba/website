@@ -3,6 +3,13 @@ import { ref } from "vue";
 import { Menu, X } from "lucide-vue-next";
 
 const isOpen = ref(false);
+const menuButton = useTemplateRef<HTMLButtonElement>("menuButton");
+
+const closeWithEscape = () => {
+  if (!isOpen.value) return;
+  isOpen.value = false;
+  menuButton.value?.focus();
+};
 
 const navItems = [
   { name: "Inicio", href: "/" },
@@ -16,6 +23,7 @@ const navItems = [
 
 <template>
   <nav
+    @keydown.esc="closeWithEscape"
     class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#2D2D2E]/80 backdrop-blur-xl"
   >
     <div
@@ -60,6 +68,7 @@ const navItems = [
 
       <div class="md:hidden">
         <button
+          ref="menuButton"
           type="button"
           class="border border-white/15 p-2 text-white/70 transition-colors hover:border-[#189C3B] hover:text-[#189C3B]"
           :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"

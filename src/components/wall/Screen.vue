@@ -21,6 +21,7 @@ const fullscreen = ref(false)
 const canFullscreen = ref(false)
 const status = ref('')
 const selected = ref('community')
+const shortcutsEnabled = ref(true)
 const running = computed(() => !paused.value && !hidden.value && !panelOpen.value)
 const channels = [
   { id: 'community', name: 'Todas las redes', href: qrTargets.community },
@@ -53,6 +54,7 @@ function onClose() {
   qrButton.value?.focus()
 }
 function onKey(event: KeyboardEvent) {
+  if (!shortcutsEnabled.value) return
   if (event.ctrlKey || event.altKey || event.metaKey || event.repeat) return
   const target = event.target as HTMLElement | null
   if (target?.closest('input, textarea, select, [contenteditable="true"]')) return
@@ -71,6 +73,7 @@ async function toggleFullscreen() {
 }
 
 onMounted(() => {
+  try { shortcutsEnabled.value = localStorage.getItem('hacklab.wall.shortcut') !== 'off' } catch { /* Preference is optional. */ }
   preference = matchMedia('(prefers-reduced-motion: reduce)')
   syncMotion()
   syncVisibility()
@@ -83,6 +86,9 @@ onMounted(() => {
   document.addEventListener('visibilitychange', syncVisibility)
   document.addEventListener('fullscreenchange', syncFullscreen)
   window.addEventListener('keydown', onKey)
+})
+watch(shortcutsEnabled, enabled => {
+  try { localStorage.setItem('hacklab.wall.shortcut', enabled ? 'on' : 'off') } catch { /* Keep the current-session preference. */ }
 })
 onBeforeUnmount(() => {
   clearInterval(clockTimer)
@@ -115,7 +121,7 @@ onBeforeUnmount(() => {
           <component :is="paused ? Play : Pause" aria-hidden="true" /><span>{{ paused ? 'Reanudar' : 'Pausa' }}</span>
         </button>
         <button ref="qrButton" type="button" aria-label="Redes y códigos QR" aria-haspopup="dialog" aria-controls="wall-socials" :aria-expanded="panelOpen" @click="openPanel">
-          <QrCode aria-hidden="true" /><span>Redes / QR</span><kbd>R</kbd>
+          <QrCode aria-hidden="true" /><span>Redes / QR</span><kbd v-if="shortcutsEnabled">R</kbd>
         </button>
         <button v-if="canFullscreen" type="button" :aria-label="fullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'" @click="toggleFullscreen">
           <component :is="fullscreen ? Minimize : Maximize" aria-hidden="true" />
@@ -144,7 +150,10 @@ onBeforeUnmount(() => {
           <p class="scan-note">Escaneá y llevate un pedacito del HackLab.</p>
         </div>
       </div>
-      <p class="panel-tip">R o Esc para volver al muro</p>
+      <div class="panel-preferences">
+        <label><input v-model="shortcutsEnabled" type="checkbox" /> Activar atajo de teclado R</label>
+        <p class="panel-tip">{{ shortcutsEnabled ? 'R o Esc' : 'Esc' }} para volver al muro</p>
+      </div>
     </dialog>
   </main>
 </template>
@@ -171,6 +180,7 @@ button:focus-visible,a:focus-visible { outline:2px solid #20bc4a; outline-offset
 .panel-header { justify-content:space-between; align-items:flex-start; gap:1rem; padding-bottom:1.5rem; border-bottom:1px solid #ffffff25; }.panel-label { color:#ffffffa8; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; }h2 { font-size:clamp(1.5rem,3vw,2.5rem); font-weight:600; margin-top:.4rem; }h2 span { color:var(--green); }.close { width:44px;height:44px;display:grid;place-items:center;cursor:pointer; }.close svg { width:20px; }
 .panel-body { display:grid; grid-template-columns:1fr 1.3fr; gap:2rem; padding-top:1.5rem; }.channel-list { display:flex; flex-direction:column; }.channel-list button { display:flex; align-items:center; gap:.8rem; border-bottom:1px solid #ffffff20; padding:1rem .7rem; min-height:48px; cursor:pointer;text-align:left;font-size:.95rem; }.channel-list svg { width:18px;height:18px; }.channel-list button>span { margin-left:auto; }.channel-list button[aria-pressed=true] { background:#189c3b;color:#000; }.channel-list button:hover:not([aria-pressed=true]) { background:#ffffff08; }
 .qr-content { text-align:center; min-width:0; }.qr-name { font-size:.8rem;text-transform:uppercase;letter-spacing:.1em; margin-bottom:.8rem; }.qr-image { width:min(100%,360px);height:auto;aspect-ratio:1; background:#fff;margin:0 auto;image-rendering:pixelated; }.qr-content a { display:block;overflow-wrap:anywhere;font-size:.85rem;margin:.8rem auto; max-width:40ch;color:#fff; }.scan-note { font-size:.85rem;color:#ffffffb8; }.panel-tip { color:#ffffff80;font-size:.65rem;text-align:right;margin-top:1.5rem; }
+.panel-preferences { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.5rem 1.5rem; margin-top:1rem; align-items:center; }.panel-preferences label { display:flex; gap:.6rem; align-items:center; min-height:44px; font: .75rem ui-monospace,monospace; color:#ffffffb8; cursor:pointer; }.panel-preferences input { width:18px; height:18px; accent-color:#189C3B; }.panel-preferences input:focus-visible { outline:2px solid #20BC4A; outline-offset:4px; }.panel-preferences .panel-tip { margin-top:0; }
 @media(max-width:640px) { .topline { padding:1rem 0; }.place { flex-direction:column-reverse;align-items:flex-end;gap:.3rem;font-size:.58rem; }.place time { font-size:1.1rem; }.animation-stage { height:0;min-height:0; }.message { min-height:5rem;font-size:1rem; }.location { max-width:16ch;line-height:1.6; }.location span { display:none; }.tools button>span,.tools kbd { display:none; }.panel-body { grid-template-columns:1fr;gap:1.1rem; }.channel-list { display:grid;grid-template-columns:1fr 1fr;gap:.2rem; }.channel-list button { font-size:.8rem;padding:.6rem .4rem;gap:.4rem; }.channel-list button>span { display:none; }.qr-image { width:min(100%,260px); }.social-panel { max-height:95svh; }.panel-header { padding-bottom:1rem; } }
 @media(orientation:landscape) and (max-height:550px) { .experiment { min-height:360px; } .topline { padding:.6rem 0; }.brand { width:7rem; }.animation-stage { height:0;min-height:0;margin:0; }.message { min-height:2rem;padding:.3rem 0;font-size:.9rem; }.bottomline { min-height:3rem; }.panel-body { grid-template-columns:1fr 1fr; }.qr-image { max-width:220px; } }
 </style>
