@@ -5,10 +5,10 @@ import downloads from "~/data/brand-assets.json";
 useSeoMeta({
   title: "Centro de descargas — HackLab BrickHeads",
   description:
-    "Descargá los logos y recursos de HackLab BrickHeads. Materiales libres para la comunidad.",
+    "Descarga los logos y recursos de HackLab BrickHeads. Recursos para difundir las actividades de la comunidad.",
   ogTitle: "Centro de descargas — HackLab BrickHeads",
   ogDescription:
-    "Descargá los logos y recursos de HackLab BrickHeads. Materiales libres para la comunidad.",
+    "Descarga los logos y recursos de HackLab BrickHeads. Recursos para difundir las actividades de la comunidad.",
   ogType: "website",
   twitterCard: "summary",
 });
@@ -32,7 +32,7 @@ useSeoMeta({
           </p>
         </div>
         <p class="max-w-xs font-mono text-xs leading-relaxed text-white/60">
-          Todos los recursos son de uso libre para la comunidad
+          Recursos para promocionar el HackLab y sus actividades
         </p>
       </div>
 
@@ -111,7 +111,7 @@ useSeoMeta({
 
       <div class="mt-16 grid gap-8 lg:grid-cols-[0.35fr_0.65fr]">
         <h3 class="text-xl font-bold uppercase tracking-wide text-white">
-          > Guia de Uso
+          > Guía de uso
         </h3>
         <ul class="divide-y divide-white/10 border-t border-white/10">
           <li class="flex items-start gap-3 py-4 text-sm text-white/60">
@@ -120,7 +120,7 @@ useSeoMeta({
           </li>
           <li class="flex items-start gap-3 py-4 text-sm text-white/60">
             <span class="text-[#189C3B]">▸</span>
-            Manten los colores oficiales: verde (#189C3B), negro y blanco
+            Mantén los colores oficiales: verde (#189C3B), negro y blanco
           </li>
           <li class="flex items-start gap-3 py-4 text-sm text-white/60">
             <span class="text-[#189C3B]">▸</span>

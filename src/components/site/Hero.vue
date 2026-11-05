@@ -2,8 +2,8 @@
 import { BookOpen, Cpu, Lightbulb, Users } from "lucide-vue-next";
 
 const pillars = [
-  { icon: Cpu, label: "Tecnologia" },
-  { icon: BookOpen, label: "Educacion" },
+  { icon: Cpu, label: "Tecnología" },
+  { icon: BookOpen, label: "Educación" },
   { icon: Lightbulb, label: "Conocimiento" },
   { icon: Users, label: "Sociedad" },
 ];
@@ -49,20 +49,17 @@ const pillars = [
           <p
             class="mt-6 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl"
           >
-            <span class="text-[#189C3B]">></span> Espacio Hacker de conocimiento
-            abierto, experimentacion y aprendizaje colectivo
+            <span class="text-[#189C3B]">></span> Somos HackLab BrickHeads, una comunidad de Cochabamba donde
+            aprendemos, experimentamos y compartimos conocimiento.
+          </p>
+
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-white/70">
+            Cualquier persona puede participar en nuestras reuniones e involucrarse
+            en las actividades y proyectos del HackLab. Nos encontramos los sábados
+            de 15:00 a 18:00 en el mARTadero; puedes llegar directamente.
           </p>
 
           <div class="mt-10 flex flex-wrap items-center gap-6">
-            <a
-              href="https://forms.gle/VfR5R73zFp84ua5L8"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-3 bg-[#189C3B] px-7 py-3.5 font-mono text-sm font-bold uppercase tracking-[0.18em] text-[#000] transition-colors hover:bg-[#20BC4A]"
-            >
-              Únete
-              <span aria-hidden="true">↗</span>
-            </a>
 
             <a
               href="#services"

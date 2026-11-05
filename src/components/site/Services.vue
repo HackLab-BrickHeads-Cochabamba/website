@@ -4,33 +4,33 @@ import { Code2, Globe, GraduationCap, Rocket, Users2, Wrench } from "lucide-vue-
 const services = [
   {
     icon: Code2,
-    title: "Desarrollo Open Source",
-    description: "Creamos y contribuimos a proyectos de codigo abierto para impulsar la tecnologia libre",
+    title: "Proyectos compartidos",
+    description: "Nos reunimos para probar ideas y construir proyectos entre varias personas, compartiendo lo que aprendemos durante el proceso.",
   },
   {
     icon: GraduationCap,
-    title: "Talleres & Workshops",
-    description: "Educacion practica en tecnologias emergentes, programacion y hacking etico",
+    title: "Talleres para aprender",
+    description: "Compartimos conocimientos de tecnología con personas de distintas edades: desde capacitación digital para mujeres hasta talleres de inteligencia artificial para niños.",
   },
   {
     icon: Users2,
-    title: "Hackatones",
-    description: "Eventos colaborativos donde la comunidad resuelve problemas reales con tecnologia",
+    title: "Cine HackLab",
+    description: "Vemos películas como punto de partida para conversar sobre tecnología, sociedad y las preguntas que nos dejan.",
   },
   {
     icon: Wrench,
-    title: "Laboratorio de Experimentacion",
-    description: "Espacio equipado para prototipado, IoT, electronica y proyectos maker",
+    title: "Experimentación y reutilización",
+    description: "Exploramos la electrónica y damos nuevos usos a equipos y componentes: desde un CanSat con materiales reciclados hasta un proyecto con pantallas CRT.",
   },
   {
     icon: Rocket,
-    title: "Proyectos de Impacto Social",
-    description: "Desarrollo de soluciones tecnologicas para problematicas sociales locales",
+    title: "Actividades comunitarias",
+    description: "También nos encontramos fuera del laboratorio. Cada Navidad llevamos regalos a niños de comunidades rurales, una actividad que compartimos año tras año.",
   },
   {
     icon: Globe,
-    title: "Comunidad Global",
-    description: "Conexion con hacklabs y comunidades tech de todo el mundo",
+    title: "Charlas y encuentros",
+    description: "Conversamos sobre temas como ciberseguridad y participamos en espacios como FLISoL, Hackmeeting y ferias de comunidades para compartir experiencias.",
   },
 ];
 </script>
@@ -39,10 +39,9 @@ const services = [
   <section id="services" class="relative border-y border-white/5 bg-white/[0.015] py-24 sm:py-32">
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <SiteSectionHeader label="// Actividades" title="Que" highlight="Hacemos" />
+        <SiteSectionHeader label="// Actividades" title="Qué" highlight="Hacemos" />
         <p class="max-w-sm font-mono text-sm text-white/60">
-          <span class="text-[#189C3B]">></span> Iniciativas para democratizar la
-          tecnologia
+          <span class="text-[#189C3B]">></span> Proyectos, conversaciones y ganas de aprender en comunidad
         </p>
       </div>
 

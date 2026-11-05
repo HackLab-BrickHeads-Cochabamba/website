@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const manifesto = [
-  "El conocimiento es un pilar fundamental del desarrollo humano, es libre y no deberia privarse.",
-  "La tecnologia es un medio, mas no el fin. Es una herramienta de las muchas para la transformacion y evolucion a una sociedad mejor.",
-  "La privacidad y los datos personales son derechos humanos fundamentales.",
-  "La colaboracion, contribucion y participacion abierta son clave para el desarrollo de tecnologia con conciencia y responsabilidad social.",
-  "Es importante fomentar la inclusion y diversidad en todos los aspectos.",
-  "Nada es absolutamente cierto, ni absolutamente falso, las respuestas mas interesantes se encuentran en el terreno de lo matizado.",
-  "Debemos manejar, ensenar y difundir tecnologia de forma critica y reflexiva.",
+  "El conocimiento es fundamental para el desarrollo humano. Creemos en compartirlo de forma libre y abierta.",
+  "La tecnología es un medio, no un fin. Nos interesa lo que podemos hacer con ella para mejorar la vida en comunidad.",
+  "Defendemos la privacidad y la protección de los datos personales.",
+  "La colaboración y la participación abierta nos ayudan a crear tecnología con conciencia y responsabilidad social.",
+  "Queremos un espacio inclusivo, donde tengan lugar personas con experiencias y perspectivas distintas.",
+  "Cultivamos la curiosidad, contrastamos ideas y estamos dispuestos a revisar lo que creemos saber.",
+  "Usamos, enseñamos y compartimos tecnología de forma crítica y reflexiva.",
 ];
 </script>
 
@@ -22,7 +22,7 @@ const manifesto = [
           />
 
           <p class="mt-6 max-w-sm font-mono text-sm text-white/60">
-            <span class="text-[#189C3B]">></span> Conocimiento libre, tecnologia
+            <span class="text-[#189C3B]">></span> Conocimiento libre, tecnología
             abierta, sociedad mejor
           </p>
         </div>
@@ -49,13 +49,12 @@ const manifesto = [
         class="mt-20 flex flex-col gap-4 border-y border-white/10 py-8 sm:flex-row sm:items-center sm:justify-between"
       >
         <p class="text-lg text-white sm:text-xl">
-          <span class="text-[#189C3B]">></span> Unete a la revolucion del
-          conocimiento libre
+          <span class="text-[#189C3B]">></span> Un espacio para aprender y compartir
         </p>
         <p
           class="font-mono text-xs uppercase tracking-[0.2em] text-white/60"
         >
-          La tecnologia en manos de la comunidad
+          La tecnología en manos de la comunidad
         </p>
       </div>
     </div>

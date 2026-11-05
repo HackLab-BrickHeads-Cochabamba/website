@@ -16,7 +16,7 @@ const navItems = [
   { name: "Manifiesto", href: "/#about" },
   { name: "Actividades", href: "/#services" },
   // { name: "Blog", href: "/#blog" },
-  { name: "Galeria", href: "/#gallery" },
+  { name: "Galería", href: "/#gallery" },
   { name: "Contacto", href: "/#contact" },
 ];
 </script>
@@ -54,16 +54,6 @@ const navItems = [
             class="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-[#189C3B] transition-transform duration-300 group-hover:scale-x-100"
           ></span>
         </a>
-
-        <a
-          href="https://forms.gle/VfR5R73zFp84ua5L8"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 border border-[#189C3B] px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#189C3B] transition-colors hover:bg-[#189C3B] hover:text-[#000]"
-        >
-          Únete
-          <span aria-hidden="true">↗</span>
-        </a>
       </div>
 
       <div class="md:hidden">
@@ -96,16 +86,6 @@ const navItems = [
           @click="isOpen = false"
         >
           {{ item.name }}
-        </a>
-
-        <a
-          href="https://forms.gle/VfR5R73zFp84ua5L8"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-6 inline-flex items-center gap-2 border border-[#189C3B] px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#189C3B] transition-colors hover:bg-[#189C3B] hover:text-[#000]"
-        >
-          Únete
-          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>

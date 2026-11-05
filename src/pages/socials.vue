@@ -5,10 +5,10 @@ import { socialLinks } from "~/data/social-links";
 useSeoMeta({
   title: "Redes y comunidad — HackLab BrickHeads",
   description:
-    "Seguí a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp. Enterate de actividades y sumate a la comunidad.",
+    "Sigue a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp. Entérate de actividades y participa en la comunidad.",
   ogTitle: "Redes y comunidad — HackLab BrickHeads",
   ogDescription:
-    "Seguí a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp.",
+    "Sigue a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp.",
   ogType: "website",
   twitterCard: "summary",
 });
@@ -44,7 +44,7 @@ useSeoMeta({
       </header>
 
       <p class="mt-6 font-mono text-sm text-white/60">
-        <span class="text-[#189C3B]">></span> Conocimiento libre • Tecnologia
+        <span class="text-[#189C3B]">></span> Conocimiento libre • Tecnología
         abierta
       </p>
 

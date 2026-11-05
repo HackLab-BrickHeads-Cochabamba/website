@@ -5,9 +5,9 @@ import qrTargets from '~/data/wall-qr.json'
 
 const phrases = [
   'Una idea en la mesa. Un cable. A ver qué pasa.',
-  '¿Cómo lo hiciste? Acercá una silla y probemos juntos.',
+  '¿Cómo lo hiciste? Acerca una silla y probemos juntos.',
   'El conocimiento crece cuando lo compartimos.',
-  'Traé tu curiosidad. Lo demás lo aprendemos juntos.',
+  'Trae tu curiosidad. Lo demás lo aprendemos juntos.',
 ]
 const wall = useTemplateRef<HTMLElement>('wall')
 const dialog = useTemplateRef<HTMLDialogElement>('dialog')
@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
 
     <dialog id="wall-socials" ref="dialog" class="social-panel" aria-labelledby="social-title" @close="onClose">
       <div class="panel-header">
-        <div><p class="panel-label">// Sigamos en contacto</p><h2 id="social-title">Sumate al HackLab<span>.</span></h2></div>
+        <div><p class="panel-label">// Sigamos en contacto</p><h2 id="social-title">Conoce el HackLab<span>.</span></h2></div>
         <button type="button" class="close" aria-label="Cerrar redes" @click="closePanel"><X aria-hidden="true" /></button>
       </div>
       <div class="panel-body">

@@ -14,8 +14,8 @@ const heading = computed(() => missing.value
 const description = computed(() => missing.value
   ? 'Puede que la página se haya movido o que el enlace esté incompleto. Volvamos al taller.'
   : unavailable.value
-    ? 'El sitio no puede responder en este momento. Probá de nuevo dentro de un rato.'
-    : 'No pudimos cargar la página. Podés intentarlo otra vez o volver al inicio.')
+    ? 'El sitio no puede responder en este momento. Intenta de nuevo dentro de un rato.'
+    : 'No pudimos cargar la página. Puedes intentarlo otra vez o volver al inicio.')
 
 useHead({
   title: computed(() => `${status.value} — HackLab BrickHeads`),
