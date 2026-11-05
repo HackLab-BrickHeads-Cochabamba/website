@@ -32,6 +32,12 @@ El build pregenera las cuatro rutas públicas y sus imágenes optimizadas, adem�
 pnpm preview
 ```
 
+## Cabeceras HTTP
+
+El servidor Nitro aplica `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options` y `Permissions-Policy`. En producción también aplica una CSP que limita los recursos al mismo origen, permite imágenes `data:` y mantiene los scripts y estilos inline que genera Nuxt. `script-src-attr 'none'` bloquea manejadores inline; la autorización de scripts inline limita la protección de CSP frente a inyección de scripts.
+
+La pantalla completa de `/wall` sigue permitida. HSTS queda pendiente de verificar HTTPS en el alojamiento definitivo. Si se publica únicamente `.output/public` con un servidor estático, estas cabeceras deben configurarse en ese servidor o CDN: los archivos HTML no las aplican por sí mismos.
+
 ## Pantalla ambiental
 
 Abrí `/wall` en el monitor o proyector del taller. El muro anima los personajes y el nombre del HackLab, con detalles de terminal, frases y hora de Cochabamba. La propuesta C fue elegida como versión final.
