@@ -95,6 +95,7 @@ const pillars = [
             format="png"
             densities="1x 2x"
             sizes="208px sm:256px lg:320px"
+            fetchpriority="high"
             preload
             loading="eager"
             class="relative w-52 object-contain drop-shadow-[0_0_45px_rgba(24,156,59,0.35)] sm:w-64 lg:w-80"

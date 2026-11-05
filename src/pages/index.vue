@@ -14,11 +14,11 @@ useSeoMeta({
 <template>
   <div>
     <SiteHero />
-    <SiteAbout />
-    <SiteServices />
+    <LazySiteAbout hydrate-never />
+    <LazySiteServices hydrate-never />
     <!-- <SiteBlog /> -->
-    <SiteGallery />
-    <SiteContact />
+    <LazySiteGallery hydrate-never />
+    <LazySiteContact hydrate-on-visible />
     <SiteFooter />
   </div>
 </template>

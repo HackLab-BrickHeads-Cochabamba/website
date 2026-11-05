@@ -37,7 +37,7 @@ useSeoMeta({
       </div>
 
       <div class="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <article v-for="item in downloads" :key="item.filename" class="group">
+        <article v-for="(item, index) in downloads" :key="item.filename" class="group">
           <div
             class="relative flex aspect-[4/3] items-center justify-center overflow-hidden p-10"
             :class="item.background === 'light' ? 'bg-[#eeeeee]' : 'bg-[#171717]'"
@@ -50,7 +50,8 @@ useSeoMeta({
               format="png"
               densities="1x 2x"
               sizes="70vw sm:36vw lg:280px"
-              loading="lazy"
+              :loading="index === 0 ? 'eager' : 'lazy'"
+              :fetchpriority="index === 0 ? 'high' : 'auto'"
               class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
             />
             <span

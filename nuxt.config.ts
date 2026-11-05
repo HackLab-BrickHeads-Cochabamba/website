@@ -6,6 +6,13 @@ export default defineNuxtConfig({
   routeRules: {
     "/descargas": { redirect: { to: "/downloads", statusCode: 301 } },
   },
+  nitro: {
+    compressPublicAssets: true,
+    prerender: {
+      routes: ["/", "/socials", "/downloads", "/wall"],
+      crawlLinks: false,
+    },
+  },
   modules: ["@nuxt/fonts", "@nuxt/image"],
   css: ["~/styles/index.css"],
   devtools: { enabled: process.env.NODE_ENV === "development" },

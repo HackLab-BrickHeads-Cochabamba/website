@@ -11,6 +11,8 @@ Sitio web oficial del HackLab BrickHeads - espacio hacker de conocimiento abiert
 
 ## Setup
 
+Usar una versión de Node compatible con `engines` en `package.json` (por ejemplo, Node 24.15 o superior dentro de la rama 24) y pnpm 12.16.1.
+
 ```bash
 pnpm install
 pnpm dev
@@ -21,6 +23,8 @@ pnpm dev
 ```bash
 pnpm build
 ```
+
+El build pregenera las cuatro rutas públicas y sus imágenes optimizadas, además de archivos Brotli/gzip. Los cambios de contenido requieren un nuevo build. Manifiesto, Actividades y la galería actual se muestran desde el HTML sin hidratarse; si se añade interacción a esas secciones, habrá que habilitar su hidratación. Contacto se hidrata al entrar en pantalla.
 
 ## Preview
 
@@ -34,7 +38,7 @@ Abrí `/wall` en el monitor o proyector del taller. El muro anima los personajes
 
 Usá **Pausa** para detener la escena y las frases, y **Pantalla completa** en navegadores compatibles. El muro empieza en pausa si el dispositivo prefiere movimiento reducido.
 
-Abrí el panel de redes y QR con el botón o la tecla `R`; cerralo con `R` o `Esc`. Mientras esté abierto la escena queda en pausa. El QR principal apunta a `https://hacklab.brickheads.space/socials`; los otros usan los mismos enlaces de Contacto y Redes. Los SVG de QR están generados localmente en `public/images/qr/`; sus destinos están registrados en `src/data/wall-qr.json`. Si cambia un enlace, regenerar su QR antes de publicar.
+Abrí el panel de redes y QR con el botón o la tecla `R`; cerralo con `R` o `Esc`. Mientras esté abierto la escena queda en pausa. El panel permite desactivar el atajo R; la preferencia se conserva en el navegador y el botón sigue disponible. El QR principal apunta a `https://hacklab.brickheads.space/socials`; los otros usan los mismos enlaces de Contacto y Redes. Los SVG de QR están generados localmente en `public/images/qr/`; sus destinos están registrados en `src/data/wall-qr.json`. Si cambia un enlace, regenerar su QR antes de publicar.
 
 ## Direcciones
 

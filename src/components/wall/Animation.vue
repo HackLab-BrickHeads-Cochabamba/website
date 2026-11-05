@@ -21,6 +21,9 @@
         height="950"
         format="png"
         densities="1x"
+        sizes="64vw sm:480px lg:640px"
+        loading="eager"
+        fetchpriority="high"
         class="heads"
       />
       <div class="name">
@@ -34,6 +37,7 @@
           height="360"
           format="png"
           densities="1x"
+          sizes="64vw sm:480px lg:850px"
         />
       </div>
     </div>
