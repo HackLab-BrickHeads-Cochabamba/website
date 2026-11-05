@@ -40,6 +40,12 @@ Abrí el panel de redes y QR con el botón o la tecla `R`; cerralo con `R` o `Es
 
 Las rutas usan nombres en inglés y los textos siguen en español: `/`, `/socials`, `/downloads` y `/wall`. La dirección anterior `/descargas` redirige permanentemente (301) a `/downloads`.
 
+## Errores y revisión del sitio
+
+`src/error.vue` contiene la plantilla de errores con mensajes para páginas inexistentes, indisponibilidad temporal y fallos genéricos. Conserva el estado HTTP del error y evita indexar estas vistas. Para comprobar un 404, abrir una ruta inexistente y usar **Volver al inicio**.
+
+Los informes y las mediciones de auditoría se conservan solo en `.perf-reports/`, ignorado por Git. El [plan de trabajo](docs/implementation-plan.md) recoge las prioridades pendientes.
+
 ## Contacto
 
 - Email: hacklab.brickheads@gmail.com
