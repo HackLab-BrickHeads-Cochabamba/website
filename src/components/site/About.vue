@@ -1,53 +1,63 @@
 <script setup lang="ts">
-import { CheckCircle2 } from "lucide-vue-next";
-
 const manifesto = [
-  "El conocimiento es un pilar fundamental del desarrollo humano, es libre y no deberia privarse.",
-  "La tecnologia es un medio, mas no el fin. Es una herramienta de las muchas para la transformacion y evolucion a una sociedad mejor.",
-  "La privacidad y los datos personales son derechos humanos fundamentales.",
-  "La colaboracion, contribucion y participacion abierta son clave para el desarrollo de tecnologia con conciencia y responsabilidad social.",
-  "Es importante fomentar la inclusion y diversidad en todos los aspectos.",
-  "Nada es absolutamente cierto, ni absolutamente falso, las respuestas mas interesantes se encuentran en el terreno de lo matizado.",
-  "Debemos manejar, ensenar y difundir tecnologia de forma critica y reflexiva.",
+  "El conocimiento es fundamental para el desarrollo humano. Creemos en compartirlo de forma libre y abierta.",
+  "La tecnología es un medio, no un fin. Nos interesa lo que podemos hacer con ella para mejorar la vida en comunidad.",
+  "Defendemos la privacidad y la protección de los datos personales.",
+  "La colaboración y la participación abierta nos ayudan a crear tecnología con conciencia y responsabilidad social.",
+  "Queremos un espacio inclusivo, donde tengan lugar personas con experiencias y perspectivas distintas.",
+  "Cultivamos la curiosidad, contrastamos ideas y estamos dispuestos a revisar lo que creemos saber.",
+  "Usamos, enseñamos y compartimos tecnología de forma crítica y reflexiva.",
 ];
 </script>
 
 <template>
-  <section id="about" class="py-20 bg-black relative overflow-hidden">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(24,156,59,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,156,59,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#189C3B]/50 to-transparent"></div>
+  <section id="about" class="relative bg-black py-24 sm:py-32">
+    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div class="lg:sticky lg:top-28 lg:self-start">
+          <SiteSectionHeader
+            label="// Manifiesto hacker"
+            title="Nuestros"
+            highlight="Principios"
+          />
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-16">
-        <div class="inline-block mb-4">
-          <span class="text-[#189C3B] font-mono text-sm border border-[#189C3B]/30 px-4 py-2 bg-[#189C3B]/5">{{ '// MANIFIESTO HACKER' }}</span>
+          <SiteTecsPrinciples />
+
+          <p class="mt-6 max-w-sm font-mono text-sm text-white/60">
+            <span class="text-[#189C3B]">></span> Conocimiento libre, tecnología
+            abierta, sociedad mejor
+          </p>
         </div>
-        <h2 class="text-4xl md:text-5xl mb-6 font-bold">
-          <span class="text-white">Nuestros <span class="text-[#189C3B] drop-shadow-[0_0_15px_rgba(24,156,59,0.5)]">Principios</span></span>
-        </h2>
+
+        <ol class="divide-y divide-white/10 border-t border-white/10">
+          <li
+            v-for="(principle, index) in manifesto"
+            :key="index"
+            class="group flex gap-6 py-6 sm:gap-8"
+          >
+            <span class="shrink-0 font-mono text-sm text-[#189C3B]">
+              {{ String(index + 1).padStart(2, "0") }}
+            </span>
+            <p
+              class="text-base leading-relaxed text-white/70 transition-colors group-hover:text-white sm:text-lg"
+            >
+              {{ principle }}
+            </p>
+          </li>
+        </ol>
       </div>
 
-      <div class="space-y-6">
-        <div
-          v-for="(principle, index) in manifesto"
-          :key="index"
-          class="border border-[#189C3B]/30 bg-black/50 p-6 hover:border-[#189C3B]/60 hover:bg-[#189C3B]/5 transition-all duration-300 group backdrop-blur-sm"
+      <div
+        class="mt-20 flex flex-col gap-4 border-y border-white/10 py-8 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <p class="text-lg text-white sm:text-xl">
+          <span class="text-[#189C3B]">></span> Un espacio para aprender y compartir
+        </p>
+        <p
+          class="font-mono text-xs uppercase tracking-[0.2em] text-white/60"
         >
-          <div class="flex gap-4 items-start">
-            <div class="flex-shrink-0 mt-1">
-              <div class="w-6 h-6 border border-[#189C3B] flex items-center justify-center group-hover:bg-[#189C3B] transition-colors">
-                <span class="text-[#189C3B] group-hover:text-[#189C3B] font-mono text-xs">{{ String(index + 1).padStart(2, '0') }}</span>
-              </div>
-            </div>
-            <p class="text-gray-300 leading-relaxed flex-1">{{ principle }}</p>
-            <CheckCircle2 class="w-5 h-5 text-[#189C3B]/50 group-hover:text-[#189C3B] transition-colors flex-shrink-0 mt-1" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-16 text-center border border-[#189C3B]/40 bg-[#189C3B]/10 p-8 backdrop-blur-sm">
-        <p class="text-white text-xl font-mono"><span class="text-[#189C3B]">></span> Unete a la revolucion del conocimiento libre</p>
-        <p class="text-gray-400 mt-2 font-mono text-sm">La tecnologia en manos de la comunidad</p>
+          La tecnología en manos de la comunidad
+        </p>
       </div>
     </div>
   </section>
