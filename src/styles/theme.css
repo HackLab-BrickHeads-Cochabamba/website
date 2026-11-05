@@ -4,6 +4,7 @@
   --font-size: 16px;
   --font-family: 'Oxanium', system-ui, sans-serif;
   --hack-green: #189C3B;
+  --hack-green-text: #20BC4A;
   --hack-black: #2D2D2E;
   --hack-gray: #3A3938;
   --hack-white: #FFFFFF;
@@ -189,40 +190,59 @@
     line-height: 1.5;
   }
 
-  /* Enforce the site palette on frequently used Tailwind utility classes. */
+}
+
+/*
+ * Paleta del sitio.
+ * Estas reglas viven en `utilities` y sin `!important` para que los estados
+ * interactivos (hover:, group-hover:, focus:) puedan sobreescribirlas.
+ * Con `!important` en `base`, cualquier `hover:bg-*` quedaba anulado y el
+ * texto negro terminaba sobre un fondo negro.
+ */
+@layer utilities {
   .bg-black,
   .bg-black\/50,
   .bg-black\/80,
   .bg-black\/90,
   .bg-black\/95 {
-    background-color: var(--hack-black) !important;
+    background-color: var(--hack-black);
   }
 
   .text-black {
-    color: var(--hack-black) !important;
+    color: var(--hack-black);
   }
 
   .text-white {
-    color: var(--hack-white) !important;
+    color: var(--hack-white);
   }
 
   .text-gray-300 {
-    color: rgba(255, 255, 255, 0.92) !important;
+    color: rgba(255, 255, 255, 0.92);
   }
 
   .text-gray-400 {
-    color: rgba(255, 255, 255, 0.84) !important;
+    color: rgba(255, 255, 255, 0.84);
   }
 
   .text-gray-500 {
-    color: rgba(255, 255, 255, 0.74) !important;
+    color: rgba(255, 255, 255, 0.74);
   }
 
   .text-gray-600 {
-    color: rgba(255, 255, 255, 0.64) !important;
+    color: rgba(255, 255, 255, 0.64);
   }
 
   .bg-white\/5 {
-    background-color: var(--hack-gray) !important;
+    background-color: var(--hack-gray);
+  }
+
+  /*
+   * Texto verde legible sobre las superficies oscuras del sitio.
+   * #189C3B sobre #2D2D2E da 3.83:1 y no alcanza WCAG AA para texto chico;
+   * esta variante da 5.47:1 manteniendo el mismo tono. El verde de marca se
+   * conserva para bordes, glows y fondos.
+   */
+  .text-\[\#189C3B\] {
+    color: var(--hack-green-text);
   }
 }

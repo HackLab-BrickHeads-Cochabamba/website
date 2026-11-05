@@ -31,6 +31,15 @@ Thumbs.db
 .cache/
 coverage/
 
+# Performance reports
+.perf-reports/
+
+# AI tooling (local only)
+.opencode/
+
+# Internal brand originals and references (never publish)
+/resources/
+
 # Temporary files
 *.tmp
 *.temp

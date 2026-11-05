@@ -1,71 +1,113 @@
 <script setup lang="ts">
-import { ExternalLink, Facebook, Instagram, Linkedin, Youtube } from "lucide-vue-next";
-import squareLogo from "~/assets/images/square_white.png";
+usePublicPageSeo("/socials");
+import { ArrowUpRight } from "lucide-vue-next";
+import { socialLinks } from "~/data/social-links";
 
-const socials = [
-  { name: "Facebook", link: "https://www.facebook.com/HackLabBrickHeads", icon: Facebook },
-  { name: "@hacklab.brickheads", link: "https://www.instagram.com/hacklabbrickheads/", icon: Instagram },
-  { name: "LinkedIn", link: "https://www.linkedin.com/company/hacklab-brickheads-cochabamba/", icon: Linkedin },
-  { name: "YouTube", link: "https://www.youtube.com/@HackLabBrickHeads", icon: Youtube },
-  { name: "Whatsapp", link: "https://chat.whatsapp.com/GVc1h8iHryGCeIaf8Ee8ke", icon: Whatsapp },
-];
+useSeoMeta({
+  title: "Redes y comunidad — HackLab BrickHeads",
+  description:
+    "Sigue a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp. Entérate de actividades y participa en la comunidad.",
+  ogTitle: "Redes y comunidad — HackLab BrickHeads",
+  ogDescription:
+    "Sigue a HackLab BrickHeads en Facebook, Instagram, LinkedIn, YouTube y WhatsApp.",
+  ogType: "website",
+});
+
+
 </script>
 
 <template>
-  <div class="min-h-screen bg-black pt-16">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(24,156,59,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(24,156,59,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-    <div class="max-w-2xl mx-auto px-4 py-20 relative z-10">
-      <div class="text-center mb-12">
-        <div class="mb-8 flex justify-center">
-          <div class="border-2 border-[#189C3B]/40 p-6 bg-black/80 inline-block">
-            <img :src="squareLogo" alt="HackLab BrickHeads" class="w-32 h-32 object-contain" />
-          </div>
+  <div class="min-h-screen bg-black pt-20">
+    <div class="mx-auto max-w-3xl px-6 py-16 lg:py-24">
+      <header class="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        <NuxtImg
+          src="/images/heads_white.png"
+          alt="HackLab BrickHeads"
+          width="4047"
+          height="4070"
+          format="png"
+            densities="1x 2x"
+          sizes="96px"
+          class="h-24 w-24 object-contain"
+        />
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.28em] text-[#189C3B]">
+            // Redes y comunidad
+          </p>
+          <h1 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            HackLab BrickHeads
+          </h1>
+          <p class="mt-2 font-mono text-sm text-white/60">
+            Proyecto mARTadero, Cochabamba
+          </p>
         </div>
+      </header>
 
-        <p class="text-gray-400 font-mono text-sm mb-2">Proyecto mARTadero, Cochabamba</p>
-        <p class="text-gray-500 font-mono text-xs border border-[#189C3B]/30 inline-block px-4 py-2 bg-[#189C3B]/5">> Conocimiento libre • Tecnologia abierta</p>
-      </div>
+      <p class="mt-6 font-mono text-sm text-white/60">
+        <span class="text-[#189C3B]">></span> Conocimiento libre • Tecnología
+        abierta
+      </p>
 
-      <div class="space-y-4 mb-12">
+      <div class="mt-12 divide-y divide-white/10 border-y border-white/10">
         <a
-          v-for="social in socials"
+          v-for="social in socialLinks"
           :key="social.name"
-          :href="social.link"
+          :href="social.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="block border border-[#189C3B]/40 bg-black/80 p-6 hover:border-[#189C3B] hover:bg-[#189C3B]/10 transition-all duration-300 group hover:shadow-[0_0_25px_rgba(24,156,59,0.3)]"
+          class="group flex items-center justify-between gap-4 py-5"
         >
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
-              <div class="border border-[#189C3B] w-12 h-12 flex items-center justify-center bg-black group-hover:bg-[#189C3B] transition-colors">
-                <component :is="social.icon" class="w-6 h-6 text-[#189C3B] group-hover:text-[#189C3B] transition-colors" />
-              </div>
-              <span class="text-white font-bold uppercase tracking-wider text-lg">{{ social.name }}</span>
-            </div>
-            <ExternalLink class="w-5 h-5 text-[#189C3B]/60 group-hover:text-[#189C3B] transition-colors" />
+          <div class="flex items-center gap-4">
+            <SiteSocialIcon :name="social.icon" class="h-5 w-5 text-[#189C3B]" />
+            <span
+              class="text-base font-medium uppercase tracking-[0.12em] text-white/80 transition-colors group-hover:text-white"
+            >
+              {{ social.name }}
+            </span>
           </div>
+          <ArrowUpRight
+            class="h-4 w-4 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#189C3B]"
+          />
         </a>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
+      <div
+        class="mt-10 flex flex-wrap gap-8 font-mono text-xs uppercase tracking-[0.18em]"
+      >
         <NuxtLink
           to="/"
-          class="border border-[#189C3B]/40 bg-black/80 p-4 text-center hover:border-[#189C3B] hover:bg-[#189C3B]/10 transition-all duration-300 group"
+          class="group inline-flex items-center gap-2 text-white/60 transition-colors hover:text-[#189C3B]"
         >
-          <span class="text-[#189C3B] font-bold uppercase tracking-wider text-sm">{{ '[SITIO_WEB]' }}</span>
+          [SITIO_WEB]
+          <span
+            aria-hidden="true"
+            class="transition-transform group-hover:translate-x-1"
+          >
+            →
+          </span>
         </NuxtLink>
         <NuxtLink
-          to="/descargas"
-          class="border border-[#189C3B]/40 bg-black/80 p-4 text-center hover:border-[#189C3B] hover:bg-[#189C3B]/10 transition-all duration-300 group"
+          to="/downloads"
+          class="group inline-flex items-center gap-2 text-white/60 transition-colors hover:text-[#189C3B]"
         >
-          <span class="text-[#189C3B] font-bold uppercase tracking-wider text-sm">{{ '[DESCARGAS]' }}</span>
+          [DESCARGAS]
+          <span
+            aria-hidden="true"
+            class="transition-transform group-hover:translate-x-1"
+          >
+            →
+          </span>
         </NuxtLink>
       </div>
 
-      <div class="text-center mt-12">
-        <p class="text-gray-500 font-mono text-xs mb-2">// CONTACTO</p>
-        <a href="mailto:hacklab.brickheads@gmail.com" class="text-[#189C3B] hover:text-white transition-colors font-mono text-sm">
+      <div class="mt-12 border-t border-white/10 pt-6">
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-white/60">
+          // Contacto
+        </p>
+        <a
+          href="mailto:hacklab.brickheads@gmail.com"
+          class="mt-2 inline-block font-mono text-sm text-[#189C3B] transition-colors hover:text-white"
+        >
           hacklab.brickheads@gmail.com
         </a>
       </div>
